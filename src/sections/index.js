@@ -4,3 +4,4 @@
 // page renders. As Phases 3-4 add sections, add their imports here.
 
 import "./navbar/TransparentScroll"
+import "./footer/ThreeColumn"
