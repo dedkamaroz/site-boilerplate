@@ -14,7 +14,7 @@
 
 import { fileURLToPath, pathToFileURL } from "node:url"
 import { dirname, resolve, join } from "node:path"
-import { mkdirSync, copyFileSync, cpSync, writeFileSync, readFileSync, existsSync } from "node:fs"
+import { mkdirSync, cpSync, writeFileSync, readFileSync, existsSync } from "node:fs"
 import { createInterface } from "node:readline"
 import { presetNames } from "../src/theme/presets.js"
 
