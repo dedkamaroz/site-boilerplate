@@ -1,11 +1,10 @@
-// Section registry: the single source of truth for which {type, variant} pairs
-// exist. The router/PageRenderer resolves sections through here, and config
-// validation (Phase 6) and the gallery (Phase 5) both derive their allowed lists
-// from this object - so adding a variant in one place wires it everywhere.
-//
-// Variants start as stubs and are replaced by real layout components in Phases
-// 3-4. A stub renders an identifiable placeholder so the renderer/router can be
-// built and tested before the real layouts land.
+// Section registry: resolves which {type, variant} pairs map to which component.
+// The valid pairs are declared as plain data in catalogue.js (so validation can
+// read them under plain Node); this module turns that into a runtime registry of
+// components, starting as stubs that real layout components replace via
+// registerVariant. The router/PageRenderer and the gallery resolve through here.
+
+import { catalogue } from "./catalogue"
 
 function makeStub(type, variant) {
   function SectionStub(props) {
@@ -25,34 +24,6 @@ function makeStub(type, variant) {
   SectionStub.displayName = `Stub(${type}/${variant})`
   SectionStub.isStub = true
   return SectionStub
-}
-
-// Declare the catalogue: type -> { default variant, [variant names] }.
-// The full set of variants from the design doc; real components swap in later.
-const catalogue = {
-  navbar: { default: "transparent-scroll", variants: ["transparent-scroll", "solid-bar"] },
-  hero: {
-    default: "centred-over-media",
-    variants: ["centred-over-media", "split-left", "minimal-card"],
-  },
-  services: { default: "numbered-list", variants: ["numbered-list", "card-grid", "icon-row"] },
-  testimonials: { default: "drag-strip", variants: ["drag-strip", "stacked-quotes"] },
-  logoMarquee: { default: "two-row-scroll", variants: ["two-row-scroll", "static-grid"] },
-  gallery: { default: "filterable-grid", variants: ["filterable-grid", "masonry"] },
-  featured: { default: "alternating-rows", variants: ["alternating-rows", "cards"] },
-  footer: { default: "three-column", variants: ["three-column", "stacked", "compact-bar"] },
-  pricing: {
-    default: "tiers-cards",
-    variants: ["tiers-cards", "comparison-table", "simple-list"],
-  },
-  serviceArea: { default: "suburb-list", variants: ["suburb-list", "map-embed"] },
-  faq: { default: "accordion", variants: ["accordion", "two-column"] },
-  ctaBanner: { default: "full-bleed", variants: ["full-bleed", "boxed", "split"] },
-  contact: {
-    default: "form-left-details-right",
-    variants: ["form-left-details-right", "stacked", "details-only"],
-  },
-  steps: { default: "numbered-row", variants: ["numbered-row", "vertical-timeline"] },
 }
 
 // Build the runtime registry: { type: { default, variants: { name: Component } } }.
