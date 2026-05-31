@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Config-driven, multi-industry website boilerplate. One site.config.js drives brand, theme, pages and section order.",
   "private": true,
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vite",

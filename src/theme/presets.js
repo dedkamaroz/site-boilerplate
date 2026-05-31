@@ -17,7 +17,7 @@
 //   elevation     - "border" | "shadow"   (how surfaces separate)
 
 export const presets = {
-  // The original DISTRO 3D agency look: sharp, uppercase, dark.
+  // The original agency look: sharp, uppercase, dark.
   "editorial-dark": {
     colorBg: "#0D0D0D",
     colorText: "#F0F0F0",
