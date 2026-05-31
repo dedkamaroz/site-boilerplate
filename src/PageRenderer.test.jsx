@@ -33,7 +33,9 @@ describe("PageRenderer", () => {
   })
 
   it("renders nothing for an empty page without throwing", () => {
-    const { container } = render(<PageRenderer page={{ path: "/x", title: "x", sections: [] }} brand={{}} />)
+    const { container } = render(
+      <PageRenderer page={{ path: "/x", title: "x", sections: [] }} brand={{}} />
+    )
     expect(container.querySelectorAll("[data-section-type]")).toHaveLength(0)
   })
 })

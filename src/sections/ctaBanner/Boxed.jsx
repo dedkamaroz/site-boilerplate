@@ -61,7 +61,9 @@ export function Boxed({
   }
   const primaryBtn = {
     display: "inline-block",
-    background: ctaHover ? "color-mix(in srgb, var(--color-accent) 85%, var(--color-text))" : "var(--color-accent)",
+    background: ctaHover
+      ? "color-mix(in srgb, var(--color-accent) 85%, var(--color-text))"
+      : "var(--color-accent)",
     color: "var(--color-bg)",
     border: "1px solid var(--color-accent)",
     borderRadius: "var(--radius)",

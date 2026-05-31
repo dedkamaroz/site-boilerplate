@@ -163,9 +163,7 @@ export function Stacked({ brand = {}, nav = [], year }) {
         ) : null}
 
         {/* Centred legal line */}
-        {legalParts.length > 0 ? (
-          <span style={legal}>{legalParts.join("  ·  ")}</span>
-        ) : null}
+        {legalParts.length > 0 ? <span style={legal}>{legalParts.join("  ·  ")}</span> : null}
       </div>
     </footer>
   )

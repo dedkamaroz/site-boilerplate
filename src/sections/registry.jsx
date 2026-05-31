@@ -14,7 +14,9 @@ function makeStub(type, variant) {
         data-variant={variant}
         style={{ padding: "2rem", fontFamily: "var(--font-body)", color: "var(--color-text)" }}
       >
-        {props.headline ? <h2 style={{ fontFamily: "var(--font-heading)" }}>{props.headline}</h2> : null}
+        {props.headline ? (
+          <h2 style={{ fontFamily: "var(--font-heading)" }}>{props.headline}</h2>
+        ) : null}
         <p style={{ color: "var(--color-muted)" }}>
           [{type} / {variant}]
         </p>
@@ -67,9 +69,7 @@ export function resolveSection(type, variant) {
   const Component = entry.variants[chosen]
   if (!Component) {
     const known = Object.keys(entry.variants).join(", ")
-    throw new Error(
-      `unknown variant "${variant}" for section "${type}" (valid variants: ${known})`
-    )
+    throw new Error(`unknown variant "${variant}" for section "${type}" (valid variants: ${known})`)
   }
   return Component
 }

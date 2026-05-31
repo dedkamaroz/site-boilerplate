@@ -30,7 +30,10 @@ export default {
 
   // Optional global chrome. Omit to use each section type's default variant.
   layout: {
-    navbar: { variant: "transparent-scroll", props: { cta: { label: "Let's Talk", href: "/contact" } } },
+    navbar: {
+      variant: "transparent-scroll",
+      props: { cta: { label: "Let's Talk", href: "/contact" } },
+    },
     footer: { variant: "three-column" },
   },
 
@@ -47,7 +50,11 @@ export default {
             subline: "CGI · Motion Graphics · 3D Visualisation",
             ctaLabel: "See Our Work",
             ctaHref: "/work",
-            media: { kind: "video", src: "/assets/portfolio/showreel.mp4", poster: "/assets/portfolio/showreel-poster.jpg" },
+            media: {
+              kind: "video",
+              src: "/assets/portfolio/showreel.mp4",
+              poster: "/assets/portfolio/showreel-poster.jpg",
+            },
           },
         },
         {

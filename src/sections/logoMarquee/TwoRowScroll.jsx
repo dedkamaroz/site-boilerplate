@@ -111,11 +111,7 @@ export function TwoRowScroll({
   }
 
   return (
-    <section
-      style={section}
-      data-section-type="logoMarquee"
-      data-variant="two-row-scroll"
-    >
+    <section style={section} data-section-type="logoMarquee" data-variant="two-row-scroll">
       {heading ? <p style={labelStyle}>{heading}</p> : null}
       <div style={rows}>
         <MarqueeRow logos={logos} direction="left" speed={speed} />

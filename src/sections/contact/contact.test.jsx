@@ -27,9 +27,7 @@ describe("contact / form-left-details-right", () => {
 
   it("uses formEndpoint as the form action when provided", () => {
     const endpoint = "https://formspree.io/f/abcdwxyz"
-    const { container } = render(
-      <FormLeftDetailsRight brand={fullBrand} formEndpoint={endpoint} />
-    )
+    const { container } = render(<FormLeftDetailsRight brand={fullBrand} formEndpoint={endpoint} />)
     expect(container.querySelector("form").getAttribute("action")).toBe(endpoint)
   })
 

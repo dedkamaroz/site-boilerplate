@@ -12,9 +12,7 @@ function TierRow({ tier, isLast }) {
     gap: "1.5rem",
     padding: "1.25rem 0.5rem",
     borderBottom: isLast ? "none" : "1px solid var(--color-border)",
-    background: hovered
-      ? "color-mix(in srgb, var(--color-accent) 5%, transparent)"
-      : "transparent",
+    background: hovered ? "color-mix(in srgb, var(--color-accent) 5%, transparent)" : "transparent",
     transition: "background 0.2s ease",
     fontFamily: "var(--font-body)",
   }
@@ -40,11 +38,7 @@ function TierRow({ tier, isLast }) {
   const periodStyle = { color: "var(--color-muted)", fontSize: "0.8rem" }
 
   return (
-    <div
-      style={row}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div style={row} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <div style={left}>
         <span style={nameStyle}>{tier.name}</span>
         {tier.description ? <span style={descStyle}>{tier.description}</span> : null}

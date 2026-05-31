@@ -13,13 +13,7 @@ const variants = [
 describe("ctaBanner variants", () => {
   for (const [name, Variant] of variants) {
     it(`${name} renders the headline and a CTA link with the given label and href`, () => {
-      render(
-        <Variant
-          headline={`${name} Headline`}
-          ctaLabel="Book Now"
-          ctaHref="/book"
-        />
-      )
+      render(<Variant headline={`${name} Headline`} ctaLabel="Book Now" ctaHref="/book" />)
       expect(screen.getByText(`${name} Headline`)).toBeTruthy()
       const cta = screen.getByText("Book Now")
       expect(cta.tagName).toBe("A")

@@ -98,7 +98,12 @@ export function SplitLeft({
   }
 
   return (
-    <section style={outer} data-section-type="hero" data-variant="split-left" aria-label={brand?.name}>
+    <section
+      style={outer}
+      data-section-type="hero"
+      data-variant="split-left"
+      aria-label={brand?.name}
+    >
       <div style={grid} className="bp-hero-split">
         <div style={textCol}>
           <h1 style={h1}>{headline}</h1>

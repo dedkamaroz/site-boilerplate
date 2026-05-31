@@ -18,7 +18,11 @@ const DEFAULT_ITEMS = [
     category: "Product",
   },
   {
-    media: { kind: "video", src: "/assets/portfolio/logo.mp4", poster: "/assets/portfolio/logo-poster.jpg" },
+    media: {
+      kind: "video",
+      src: "/assets/portfolio/logo.mp4",
+      poster: "/assets/portfolio/logo-poster.jpg",
+    },
     title: "Brand Motion",
     category: "Branding",
   },
@@ -107,11 +111,7 @@ function GalleryTile({ item }) {
   }
 
   return (
-    <div
-      style={card}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div style={card} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <Media media={item.media} alt={item.media?.alt ?? item.title} style={media} />
       <div style={overlay} />
       <div style={info}>

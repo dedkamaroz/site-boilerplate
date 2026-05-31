@@ -64,9 +64,7 @@ function TierCard({ tier }) {
     background: featured
       ? "color-mix(in srgb, var(--color-accent) 6%, var(--color-surface))"
       : "var(--color-surface)",
-    border: `1px solid ${
-      featured || hovered ? "var(--color-accent)" : "var(--color-border)"
-    }`,
+    border: `1px solid ${featured || hovered ? "var(--color-accent)" : "var(--color-border)"}`,
     borderRadius: "var(--radius)",
     padding: "2rem",
     transition: "border-color 0.2s ease, transform 0.2s ease",

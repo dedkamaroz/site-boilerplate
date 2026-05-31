@@ -1,0 +1,15 @@
+[
+  {
+    "name": "DISTRO 3D",
+    "preset": "editorial-dark",
+    "variants": [
+      "navbar/transparent-scroll",
+      "hero/centred-over-media",
+      "services/numbered-list",
+      "testimonials/drag-strip",
+      "contact/form-left-details-right",
+      "footer/three-column"
+    ],
+    "signature": "editorial-dark|navbar/transparent-scroll,hero/centred-over-media,services/numbered-list,testimonials/drag-strip,contact/form-left-details-right,footer/three-column"
+  }
+]

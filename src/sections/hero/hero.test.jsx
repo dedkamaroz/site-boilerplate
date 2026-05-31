@@ -7,9 +7,7 @@ import { MinimalCard } from "./MinimalCard"
 describe("hero variants", () => {
   it("SplitLeft renders an <img> when media.kind is image", () => {
     const src = "/assets/hero.jpg"
-    const { container } = render(
-      <SplitLeft media={{ kind: "image", src, alt: "Hero" }} />
-    )
+    const { container } = render(<SplitLeft media={{ kind: "image", src, alt: "Hero" }} />)
     const img = container.querySelector(`img[src="${src}"]`)
     expect(img).toBeTruthy()
   })

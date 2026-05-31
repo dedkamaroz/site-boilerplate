@@ -59,7 +59,9 @@ export function FullBleed({
   }
   const primaryBtn = {
     display: "inline-block",
-    background: ctaHover ? "color-mix(in srgb, var(--color-bg) 88%, var(--color-accent))" : "var(--color-bg)",
+    background: ctaHover
+      ? "color-mix(in srgb, var(--color-bg) 88%, var(--color-accent))"
+      : "var(--color-bg)",
     color: "var(--color-accent)",
     border: "1px solid var(--color-bg)",
     borderRadius: "var(--radius)",

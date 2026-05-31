@@ -4,7 +4,11 @@ import { DragStrip } from "./DragStrip"
 import { StackedQuotes } from "./StackedQuotes"
 
 const items = [
-  { quote: "Outstanding turnaround and quality.", author: "Alex Rivera", role: "Founder, Northbound" },
+  {
+    quote: "Outstanding turnaround and quality.",
+    author: "Alex Rivera",
+    role: "Founder, Northbound",
+  },
   { quote: "They made our brand feel alive.", author: "Dana Lowe", role: "Marketing Lead, Volta" },
 ]
 

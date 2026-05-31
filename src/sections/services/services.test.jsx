@@ -5,8 +5,18 @@ import { CardGrid } from "./CardGrid"
 import { IconRow } from "./IconRow"
 
 const items = [
-  { title: "Roof Repairs", price: "From $300", description: "Leak detection and patching.", tags: ["Urgent"] },
-  { title: "Gutter Cleaning", price: "From $150", description: "Full clear and flush.", tags: ["Seasonal"] },
+  {
+    title: "Roof Repairs",
+    price: "From $300",
+    description: "Leak detection and patching.",
+    tags: ["Urgent"],
+  },
+  {
+    title: "Gutter Cleaning",
+    price: "From $150",
+    description: "Full clear and flush.",
+    tags: ["Seasonal"],
+  },
 ]
 
 describe("services / numbered-list", () => {

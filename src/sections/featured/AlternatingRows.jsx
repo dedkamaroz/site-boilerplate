@@ -152,9 +152,7 @@ function FeaturedRow({ item, index }) {
   }
 
   const MediaWrap = item.href ? "a" : "div"
-  const mediaWrapProps = item.href
-    ? { href: item.href }
-    : {}
+  const mediaWrapProps = item.href ? { href: item.href } : {}
 
   return (
     <div ref={cardRef} style={row} className="bp-featured-row">
@@ -182,11 +180,7 @@ function FeaturedRow({ item, index }) {
   )
 }
 
-export function AlternatingRows({
-  brand,
-  headline = "Featured Work",
-  items = defaultItems,
-}) {
+export function AlternatingRows({ brand, headline = "Featured Work", items = defaultItems }) {
   const section = {
     width: "100%",
     boxSizing: "border-box",

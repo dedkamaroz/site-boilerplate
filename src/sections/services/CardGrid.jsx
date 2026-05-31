@@ -73,7 +73,13 @@ function ServiceCard({ item }) {
     margin: 0,
     fontFamily: "var(--font-body)",
   }
-  const tagsRow = { display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "auto", paddingTop: "0.5rem" }
+  const tagsRow = {
+    display: "flex",
+    gap: "0.5rem",
+    flexWrap: "wrap",
+    marginTop: "auto",
+    paddingTop: "0.5rem",
+  }
   const tag = {
     color: "var(--color-muted)",
     fontSize: "0.65rem",
@@ -86,11 +92,7 @@ function ServiceCard({ item }) {
   }
 
   return (
-    <div
-      style={card}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div style={card} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <div style={titleRow}>
         <h3 style={titleStyle}>{item.title}</h3>
         {item.price ? <span style={price}>{item.price}</span> : null}

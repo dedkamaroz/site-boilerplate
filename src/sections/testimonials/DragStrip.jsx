@@ -10,7 +10,8 @@ const defaultItems = [
     role: "Head of Brand, Luxe Co.",
   },
   {
-    quote: "The content they produced hit two million views in 48 hours. Exactly the impact we wanted.",
+    quote:
+      "The content they produced hit two million views in 48 hours. Exactly the impact we wanted.",
     author: "Jordan Reeves",
     role: "Creative Director, Agency X",
   },
@@ -21,7 +22,8 @@ const defaultItems = [
     role: "Development Director, Stratum Group",
   },
   {
-    quote: "Their motion work made our rebrand feel alive. Every asset delivered on time, every time.",
+    quote:
+      "Their motion work made our rebrand feel alive. Every asset delivered on time, every time.",
     author: "Priya Sharma",
     role: "Marketing Lead, Volta Tech",
   },

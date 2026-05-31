@@ -11,7 +11,9 @@ describe("Media", () => {
   })
 
   it("renders a video when media.kind is video", () => {
-    const { container } = render(<Media media={{ kind: "video", src: "/a.mp4", poster: "/p.jpg" }} />)
+    const { container } = render(
+      <Media media={{ kind: "video", src: "/a.mp4", poster: "/p.jpg" }} />
+    )
     const video = container.querySelector("video")
     expect(video).toBeTruthy()
     expect(video.getAttribute("poster")).toBe("/p.jpg")
@@ -36,7 +38,11 @@ describe("Media", () => {
 
   it("passes through style and className", () => {
     const { getByRole } = render(
-      <Media media={{ kind: "image", src: "/a.jpg", alt: "x" }} className="cover" style={{ width: "100%" }} />
+      <Media
+        media={{ kind: "image", src: "/a.jpg", alt: "x" }}
+        className="cover"
+        style={{ width: "100%" }}
+      />
     )
     const img = getByRole("img")
     expect(img).toHaveClass("cover")

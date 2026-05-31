@@ -53,18 +53,50 @@ export function fixtureProps(type) {
       return {
         ...common,
         items: [
-          { media: { kind: "image", src: sampleImage, alt: "Project one" }, title: "Project one", category: "Web" },
-          { media: { kind: "video", src: sampleVideo, poster: sampleVideoPoster }, title: "Project two", category: "Motion" },
-          { media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Project three" }, title: "Project three", category: "Brand" },
-          { media: { kind: "image", src: "/assets/portfolio/abstract.webp", alt: "Project four" }, title: "Project four", category: "Web" },
+          {
+            media: { kind: "image", src: sampleImage, alt: "Project one" },
+            title: "Project one",
+            category: "Web",
+          },
+          {
+            media: { kind: "video", src: sampleVideo, poster: sampleVideoPoster },
+            title: "Project two",
+            category: "Motion",
+          },
+          {
+            media: {
+              kind: "image",
+              src: "/assets/portfolio/headphones.webp",
+              alt: "Project three",
+            },
+            title: "Project three",
+            category: "Brand",
+          },
+          {
+            media: { kind: "image", src: "/assets/portfolio/abstract.webp", alt: "Project four" },
+            title: "Project four",
+            category: "Web",
+          },
         ],
       }
     case "featured":
       return {
         ...common,
         items: [
-          { media: { kind: "image", src: sampleImage, alt: "Feature one" }, title: "A standout project", description: "A short line about the outcome and impact.", tag: "Case study", href: "#" },
-          { media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Feature two" }, title: "Another highlight", description: "What we delivered and why it mattered.", tag: "Featured", href: "#" },
+          {
+            media: { kind: "image", src: sampleImage, alt: "Feature one" },
+            title: "A standout project",
+            description: "A short line about the outcome and impact.",
+            tag: "Case study",
+            href: "#",
+          },
+          {
+            media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Feature two" },
+            title: "Another highlight",
+            description: "What we delivered and why it mattered.",
+            tag: "Featured",
+            href: "#",
+          },
         ],
       }
     default:

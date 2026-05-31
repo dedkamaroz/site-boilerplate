@@ -9,14 +9,17 @@ export function validateConfig(config) {
   const errors = []
 
   if (!config || typeof config !== "object") {
-    return { ok: false, errors: ["config: expected an object (a default export from site.config.js)"] }
+    return {
+      ok: false,
+      errors: ["config: expected an object (a default export from site.config.js)"],
+    }
   }
 
   // Brand
   if (!config.brand || typeof config.brand !== "object") {
     errors.push("brand: required object is missing")
   } else if (!config.brand.name || String(config.brand.name).trim() === "") {
-    errors.push('brand.name: required and must be a non-empty string')
+    errors.push("brand.name: required and must be a non-empty string")
   }
 
   // Theme
@@ -85,6 +88,8 @@ function checkVariant(type, variant, label, errors) {
   if (variant == null) return
   const entry = catalogue[type]
   if (!entry.variants.includes(variant)) {
-    errors.push(`${label}: unknown ${type} variant "${variant}" (valid: ${entry.variants.join(", ")})`)
+    errors.push(
+      `${label}: unknown ${type} variant "${variant}" (valid: ${entry.variants.join(", ")})`
+    )
   }
 }

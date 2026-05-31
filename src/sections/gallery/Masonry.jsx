@@ -17,7 +17,11 @@ const DEFAULT_ITEMS = [
     category: "Branding",
   },
   {
-    media: { kind: "video", src: "/assets/portfolio/perfume.mp4", poster: "/assets/portfolio/perfume-poster.jpg" },
+    media: {
+      kind: "video",
+      src: "/assets/portfolio/perfume.mp4",
+      poster: "/assets/portfolio/perfume-poster.jpg",
+    },
     title: "Elixir",
     category: "Product",
   },

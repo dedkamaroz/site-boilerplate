@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-gallery/
+package-lock.json
+fingerprints.json
+public/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.ico
+docs/plans/*.png
+docs/plans/*.jpeg

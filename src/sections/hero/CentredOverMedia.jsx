@@ -115,7 +115,12 @@ export function CentredOverMedia({
   }
 
   return (
-    <section style={outer} data-section-type="hero" data-variant="centred-over-media" aria-label={brand?.name}>
+    <section
+      style={outer}
+      data-section-type="hero"
+      data-variant="centred-over-media"
+      aria-label={brand?.name}
+    >
       {/* Media background */}
       <Media media={media} style={mediaBg} alt={media?.alt ?? ""} />
 

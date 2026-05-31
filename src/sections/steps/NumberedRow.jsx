@@ -5,7 +5,10 @@ import { registerVariant } from "../registry"
 // description. A connector line bridges adjacent steps on wide screens, hidden
 // once the row stacks. Industry-neutral demo content lets it render standalone.
 const demoSteps = [
-  { title: "Get in touch", description: "Tell us what you need and share the brief - no obligation." },
+  {
+    title: "Get in touch",
+    description: "Tell us what you need and share the brief - no obligation.",
+  },
   { title: "Receive a quote", description: "We scope the work and send a clear, fixed price." },
   { title: "We get to work", description: "Your project is scheduled and delivered on time." },
   { title: "Sign off", description: "Review the result and we tidy up every loose end." },

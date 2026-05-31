@@ -7,9 +7,7 @@ const suburbs = ["Chatswood", "Mosman", "Neutral Bay"]
 
 describe("serviceArea / suburb-list", () => {
   it("renders the heading and at least two suburb names", () => {
-    const { getByText } = render(
-      <SuburbList headline="Where we work" suburbs={suburbs} />
-    )
+    const { getByText } = render(<SuburbList headline="Where we work" suburbs={suburbs} />)
     expect(getByText("Where we work")).toBeInTheDocument()
     expect(getByText("Chatswood")).toBeInTheDocument()
     expect(getByText("Mosman")).toBeInTheDocument()
@@ -23,9 +21,7 @@ describe("serviceArea / suburb-list", () => {
 
 describe("serviceArea / map-embed", () => {
   it("renders the heading and at least two suburb names", () => {
-    const { getByText } = render(
-      <MapEmbed headline="Where we work" suburbs={suburbs} />
-    )
+    const { getByText } = render(<MapEmbed headline="Where we work" suburbs={suburbs} />)
     expect(getByText("Where we work")).toBeInTheDocument()
     expect(getByText("Chatswood")).toBeInTheDocument()
     expect(getByText("Mosman")).toBeInTheDocument()

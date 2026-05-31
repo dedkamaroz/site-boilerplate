@@ -39,7 +39,9 @@ function VariantFrame({ type, variant, preset }) {
         ) : null}
       </div>
       {/* The preview surface carries the preset tokens and the theme background. */}
-      <div style={{ ...presetVars(preset), background: "var(--color-bg)", color: "var(--color-text)" }}>
+      <div
+        style={{ ...presetVars(preset), background: "var(--color-bg)", color: "var(--color-text)" }}
+      >
         <Component {...props} />
       </div>
     </div>
@@ -77,7 +79,9 @@ export default function Gallery() {
         }}
       >
         <strong style={{ fontSize: "1rem" }}>Section gallery</strong>
-        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center", fontSize: "0.85rem" }}>
+        <label
+          style={{ display: "flex", gap: "0.5rem", alignItems: "center", fontSize: "0.85rem" }}
+        >
           Preset
           <select style={controlStyle} value={preset} onChange={(e) => setPreset(e.target.value)}>
             {presetNames.map((p) => (
@@ -87,9 +91,15 @@ export default function Gallery() {
             ))}
           </select>
         </label>
-        <label style={{ display: "flex", gap: "0.5rem", alignItems: "center", fontSize: "0.85rem" }}>
+        <label
+          style={{ display: "flex", gap: "0.5rem", alignItems: "center", fontSize: "0.85rem" }}
+        >
           Type
-          <select style={controlStyle} value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
+          <select
+            style={controlStyle}
+            value={typeFilter}
+            onChange={(e) => setTypeFilter(e.target.value)}
+          >
             <option value="all">all</option>
             {sectionTypes.map((t) => (
               <option key={t} value={t}>
@@ -106,7 +116,12 @@ export default function Gallery() {
       <main>
         {types.map((type) =>
           Object.keys(registry[type].variants).map((variant) => (
-            <VariantFrame key={`${type}/${variant}`} type={type} variant={variant} preset={preset} />
+            <VariantFrame
+              key={`${type}/${variant}`}
+              type={type}
+              variant={variant}
+              preset={preset}
+            />
           ))
         )}
       </main>

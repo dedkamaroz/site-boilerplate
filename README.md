@@ -20,13 +20,13 @@ plan. A full spin-up guide lands with Phase 9.
 
 ## Scripts
 
-| Script | Purpose |
-| --- | --- |
-| `npm run dev` | Run the dev server against `site.config.js`. |
-| `npm run build` | Validate the config, then build `dist/`. |
-| `npm run preview` | Preview the production build. |
-| `npm test` | Run the test suite (Vitest). |
-| `npm run lint` | ESLint + Prettier check. |
-| `npm run gallery` | Component preview gallery (every section x variant). |
-| `npm run new-site` | Scaffold a new client site. |
-| `npm run fingerprint` | Disguise fingerprint-collision check. |
+| Script                | Purpose                                              |
+| --------------------- | ---------------------------------------------------- |
+| `npm run dev`         | Run the dev server against `site.config.js`.         |
+| `npm run build`       | Validate the config, then build `dist/`.             |
+| `npm run preview`     | Preview the production build.                        |
+| `npm test`            | Run the test suite (Vitest).                         |
+| `npm run lint`        | ESLint + Prettier check.                             |
+| `npm run gallery`     | Component preview gallery (every section x variant). |
+| `npm run new-site`    | Scaffold a new client site.                          |
+| `npm run fingerprint` | Disguise fingerprint-collision check.                |
