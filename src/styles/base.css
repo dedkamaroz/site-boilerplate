@@ -1,0 +1,45 @@
+/* base.css - structural tokens and resets only. NO colours and NO font families
+   live here: those are injected at :root by ThemeProvider from the active theme
+   preset, so the same stylesheet serves every generated site. */
+
+:root {
+  /* Spacing scale (multiplied by the preset's --space-scale where used) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+
+  /* Layout */
+  --max-width: 1280px;
+  --nav-height: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}

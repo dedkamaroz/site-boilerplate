@@ -33,6 +33,7 @@ Read first: `docs/plans/2026-06-01-boilerplate-design.md`. It holds the full sch
 ### Task 0.1: Initialise the boilerplate repo
 
 **Files:**
+
 - Create: `./package.json` (start from the existing distro3d one)
 - Create: `./.gitignore`
 - Create: `./README.md` (stub)
@@ -96,6 +97,7 @@ This phase proves the disguise mechanism before scaling. No section work yet.
 ### Task 1.1: Theme preset definitions
 
 **Files:**
+
 - Create: `src/theme/presets.js`
 - Test: `src/theme/presets.test.js`
 
@@ -108,9 +110,19 @@ import { presets } from "./presets"
 describe("presets", () => {
   it("every preset defines the full token set", () => {
     const required = [
-      "colorBg", "colorText", "colorAccent", "colorMuted", "colorSurface",
-      "fontHeading", "fontBody", "radius", "spaceScale", "typeScale", "case",
-      "motion", "elevation",
+      "colorBg",
+      "colorText",
+      "colorAccent",
+      "colorMuted",
+      "colorSurface",
+      "fontHeading",
+      "fontBody",
+      "radius",
+      "spaceScale",
+      "typeScale",
+      "case",
+      "motion",
+      "elevation",
     ]
     for (const name of Object.keys(presets)) {
       for (const key of required) {
@@ -120,9 +132,12 @@ describe("presets", () => {
   })
 
   it("ships the four named personalities", () => {
-    expect(Object.keys(presets).sort()).toEqual(
-      ["corporate", "editorial-dark", "tradesman", "warm-service"]
-    )
+    expect(Object.keys(presets).sort()).toEqual([
+      "corporate",
+      "editorial-dark",
+      "tradesman",
+      "warm-service",
+    ])
   })
 })
 ```
@@ -141,6 +156,7 @@ each defining all required tokens. `case` is `"upper"|"sentence"`, `motion` is
 ### Task 1.2: Token-to-CSS-variable mapping
 
 **Files:**
+
 - Create: `src/theme/tokensToCss.js`
 - Test: `src/theme/tokensToCss.test.js`
 
@@ -151,8 +167,8 @@ import { tokensToCss } from "./tokensToCss"
 
 it("merges preset with overrides and emits CSS vars", () => {
   const css = tokensToCss("tradesman", { colorAccent: "#0B6CB3" })
-  expect(css["--color-accent"]).toBe("#0B6CB3")          // override wins
-  expect(css["--color-bg"]).toBeDefined()                 // preset fills rest
+  expect(css["--color-accent"]).toBe("#0B6CB3") // override wins
+  expect(css["--color-bg"]).toBeDefined() // preset fills rest
   expect(css["--font-heading"]).toBeDefined()
 })
 
@@ -173,6 +189,7 @@ token names to `--kebab-case` CSS variables.
 ### Task 1.3: ThemeProvider
 
 **Files:**
+
 - Create: `src/theme/ThemeProvider.jsx`
 - Test: `src/theme/ThemeProvider.test.jsx`
 
@@ -193,6 +210,7 @@ set, and that a Google Fonts `<link>` for the configured fonts is injected.
 ### Task 1.4: Migrate existing components off `const C`
 
 **Files (modify):**
+
 - `src/components/Hero.jsx`, `ServicesSection.jsx`, `NavBar.jsx`,
   `Footer.jsx`, `FeaturedWork.jsx`, `TestimonialsStrip.jsx`,
   `PortfolioGrid.jsx`, `ClientLogoMarquee.jsx`
@@ -218,6 +236,7 @@ still renders (now reading tokens). Capture a screenshot for the record.
 ### Task 2.1: Section registry
 
 **Files:**
+
 - Create: `src/sections/registry.js`
 - Test: `src/sections/registry.test.js`
 
@@ -258,6 +277,7 @@ stub component per type; real variants land in Phases 3-4.
 ### Task 2.2: PageRenderer
 
 **Files:**
+
 - Create: `src/PageRenderer.jsx`
 - Test: `src/PageRenderer.test.jsx`
 
@@ -277,6 +297,7 @@ each with `{...section.props}` plus a `brand` prop passed down from config.
 ### Task 2.3: Router + App from config
 
 **Files:**
+
 - Modify: `src/App.jsx`
 - Create: `site.config.js` (a working sample: the agency config)
 - Test: `src/App.test.jsx`
@@ -299,11 +320,13 @@ render `navbar`/`footer` around the routed content, and set
 ### Task 2.4: Self-hiding brand fields
 
 **Files:**
+
 - Modify: `src/components/Footer.jsx`
 - Create: `src/components/HoursBlock.jsx`
 - Test: `src/components/Footer.test.jsx`, `src/components/HoursBlock.test.jsx`
 
 **Step 1: Failing tests**
+
 - Footer renders ABN/licence/service-area when present; renders none of them
   when absent (no empty labels, no stray separators).
 - `HoursBlock` renders regular rows and, when `emergency` is set, an
@@ -329,6 +352,7 @@ verify on a scratch route). Worked example below is the pattern for the rest.
 ### Task 3.1 (worked example): Hero variants
 
 **Files:**
+
 - Modify: `src/components/Hero.jsx` (becomes variant-aware or split into files)
 - Create: `src/sections/hero/CentredOverMedia.jsx`,
   `src/sections/hero/SplitLeft.jsx`, `src/sections/hero/MinimalCard.jsx`
@@ -336,14 +360,16 @@ verify on a scratch route). Worked example below is the pattern for the rest.
 - Test: `src/sections/hero/hero.test.jsx`
 
 **Step 1: Failing test**
+
 ```js
 it("hero renders an image when media.kind is image", () => {
-  render(<SplitLeft headline="Hi" media={{kind:"image", src:"/a.jpg"}} />)
+  render(<SplitLeft headline="Hi" media={{ kind: "image", src: "/a.jpg" }} />)
   expect(screen.getByRole("img")).toHaveAttribute("src", "/a.jpg")
 })
 it("hero renders a video when media.kind is video", () => {
   const { container } = render(
-    <CentredOverMedia headline="Hi" media={{kind:"video", src:"/a.mp4"}} />)
+    <CentredOverMedia headline="Hi" media={{ kind: "video", src: "/a.mp4" }} />
+  )
   expect(container.querySelector("video")).toBeTruthy()
 })
 ```
@@ -400,6 +426,7 @@ Register every variant. Commit after each.
 ### Task 5.1: Gallery harness
 
 **Files:**
+
 - Create: `gallery/index.html`, `gallery/main.jsx`, `vite.gallery.config.js`
 - Create: `gallery/Gallery.jsx`
 
@@ -423,11 +450,13 @@ without errors. Screenshot the index.
 ### Task 6.1: Schema validator
 
 **Files:**
+
 - Create: `scripts/validate-config.mjs`
 - Create: `src/config/schema.js` (the allowed types, variants, required fields)
 - Test: `src/config/schema.test.js`
 
 **Step 1: Failing tests**
+
 - Valid sample config passes.
 - Unknown section `type` fails with message naming the type and the page.
 - Unknown `variant` for a known type fails with the valid-variant list.
@@ -454,11 +483,13 @@ config and confirm it aborts with a clear message.
 ### Task 7.1: Fingerprint check
 
 **Files:**
+
 - Create: `scripts/fingerprint.mjs`
 - Create: `fingerprints.json` (committed registry of generated sites)
 - Test: `src/config/fingerprint.test.js`
 
 **Step 1: Failing tests**
+
 - `fingerprintOf(config)` returns a stable signature from preset + the ordered
   list of `{type, variant}` across all pages.
 - `checkCollision(fp, existing[])` flags an exact match and flags a
@@ -479,6 +510,7 @@ variant choices and confirming a warning.
 ### Task 7.2: ESLint no-raw-colour rule + Prettier
 
 **Files:**
+
 - Create: `.eslintrc.cjs`, `.prettierrc`
 
 **Step 1:** Configure ESLint with React rules plus `no-restricted-syntax`
@@ -493,6 +525,7 @@ hex from Phase 1).
 ### Task 7.3: GitHub Actions CI
 
 **Files:**
+
 - Create: `.github/workflows/ci.yml`
 
 **Step 1:** Workflow on push/PR: install, `npm run lint`, `npm run test`,
@@ -512,6 +545,7 @@ hex from Phase 1).
 ### Task 8.1: new-site scaffolder
 
 **Files:**
+
 - Create: `scripts/new-site.mjs`
 - Create: `templates/site.config.template.js`
 - Test: `scripts/new-site.test.mjs`
@@ -543,6 +577,7 @@ throwaway site, `npm run build` it, confirm it deploys-builds clean.
 ### Task 9.1: Two divergent demo sites
 
 **Files:**
+
 - Create: `examples/plumber/site.config.js`
 - Create: `examples/consultancy/site.config.js`
 
@@ -566,6 +601,7 @@ which sections gave it away and loop back to add/adjust variants.
 ### Task 9.2: README spin-up guide
 
 **Files:**
+
 - Modify: `./README.md`
 
 **Step 1:** Write the "Spin up a new site in 5 steps" guide: `npm run new-site`,

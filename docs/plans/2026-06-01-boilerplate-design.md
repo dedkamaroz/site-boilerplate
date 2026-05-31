@@ -57,29 +57,29 @@ export default {
     logo: "/assets/logo.svg",
     email: "book@acmeplumbing.com.au",
     phone: "+61 4XX XXX XXX",
-    abn: "12 345 678 901",                  // footer; omit to hide
-    licenceNumber: "NSW Lic. 123456C",      // footer/contact; omit to hide
+    abn: "12 345 678 901", // footer; omit to hide
+    licenceNumber: "NSW Lic. 123456C", // footer/contact; omit to hide
     serviceArea: "Greater North Sydney",
     hours: {
       regular: [
         { days: "Mon-Fri", time: "7:00am - 5:00pm" },
-        { days: "Sat",     time: "8:00am - 12:00pm" },
+        { days: "Sat", time: "8:00am - 12:00pm" },
       ],
-      emergency: "24/7 emergency call-outs",  // string or null
+      emergency: "24/7 emergency call-outs", // string or null
     },
-    social: { facebook: "", instagram: "" },  // optional; empty = hidden
+    social: { facebook: "", instagram: "" }, // optional; empty = hidden
   },
 
   theme: {
-    preset: "tradesman",            // personality bundle (see section 6)
-    colors: { accent: "#0B6CB3" },  // overrides on top of the preset
-    fonts:  { heading: "Poppins", body: "Inter" },
+    preset: "tradesman", // personality bundle (see section 6)
+    colors: { accent: "#0B6CB3" }, // overrides on top of the preset
+    fonts: { heading: "Poppins", body: "Inter" },
   },
 
   nav: [
     { label: "Services", href: "/services" },
-    { label: "About",    href: "/about" },
-    { label: "Contact",  href: "/contact" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
 
   pages: [
@@ -87,18 +87,60 @@ export default {
       path: "/",
       title: "Acme Plumbing - 24/7 Emergency Plumbers",
       sections: [
-        { type: "hero",     variant: "split-left",
-          props: { headline: "Burst pipe? We're there in 60 minutes.",
-                   media: { kind: "image", src: "/assets/van.jpg" },
-                   ctaLabel: "Book a callout", ctaHref: "/contact" } },
-        { type: "services", variant: "card-grid", props: { /* ... */ } },
-        { type: "testimonials", variant: "drag-strip", props: { /* ... */ } },
-        { type: "ctaBanner", variant: "full-bleed", props: { /* ... */ } },
+        {
+          type: "hero",
+          variant: "split-left",
+          props: {
+            headline: "Burst pipe? We're there in 60 minutes.",
+            media: { kind: "image", src: "/assets/van.jpg" },
+            ctaLabel: "Book a callout",
+            ctaHref: "/contact",
+          },
+        },
+        {
+          type: "services",
+          variant: "card-grid",
+          props: {
+            /* ... */
+          },
+        },
+        {
+          type: "testimonials",
+          variant: "drag-strip",
+          props: {
+            /* ... */
+          },
+        },
+        {
+          type: "ctaBanner",
+          variant: "full-bleed",
+          props: {
+            /* ... */
+          },
+        },
       ],
     },
-    { path: "/services", title: "...", sections: [ /* ... */ ] },
-    { path: "/about",    title: "...", sections: [ /* ... */ ] },
-    { path: "/contact",  title: "...", sections: [ /* ... */ ] },
+    {
+      path: "/services",
+      title: "...",
+      sections: [
+        /* ... */
+      ],
+    },
+    {
+      path: "/about",
+      title: "...",
+      sections: [
+        /* ... */
+      ],
+    },
+    {
+      path: "/contact",
+      title: "...",
+      sections: [
+        /* ... */
+      ],
+    },
   ],
 }
 ```

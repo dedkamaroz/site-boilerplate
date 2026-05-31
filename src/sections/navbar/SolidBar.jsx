@@ -1,31 +1,20 @@
 import { useState, useEffect } from "react"
+import { registerVariant } from "../registry"
 
 const NAV_HEIGHT = 72
 
-const defaultLinks = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-]
-
-export default function NavBar({
-  logoSrc = "",
-  logoText = "DISTRO 3D",
-  links = defaultLinks,
-  ctaLabel = "Let's Talk",
-  ctaHref = "/contact",
-}) {
-  const [scrolled, setScrolled] = useState(false)
+// navbar / solid-bar: a fixed top bar that is ALWAYS solid - it never goes
+// transparent over a hero. Background var(--color-surface) with a bottom border,
+// brand on the left, nav links and a CTA on the right, and a mobile hamburger
+// overlay. Reads config brand + nav only; no client literals.
+export function SolidBar({ brand = {}, nav = [], cta = {} }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState(null)
   const [ctaHover, setCtaHover] = useState(false)
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+  const { name, logo, phone } = brand
+  const ctaLabel = cta.label || (phone ? `Call ${phone}` : "Contact")
+  const ctaHref = cta.href || (phone ? `tel:${phone.replace(/\s/g, "")}` : "/contact")
 
   // Close mobile menu on resize to desktop
   useEffect(() => {
@@ -47,14 +36,13 @@ export default function NavBar({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 2rem",
-    transition: "background 0.3s ease, border-color 0.3s ease",
-    background: scrolled ? "var(--color-surface)" : "transparent",
-    borderBottom: scrolled ? `1px solid var(--color-border)` : "1px solid transparent",
+    background: "var(--color-surface)",
+    borderBottom: "1px solid var(--color-border)",
     boxSizing: "border-box",
     fontFamily: "var(--font-body)",
   }
 
-  const logo = {
+  const logoStyle = {
     color: "var(--color-text)",
     fontWeight: 700,
     fontSize: "1.1rem",
@@ -65,6 +53,7 @@ export default function NavBar({
     alignItems: "center",
     gap: "0.5rem",
     flexShrink: 0,
+    fontFamily: "var(--font-heading)",
   }
 
   const desktopLinks = {
@@ -86,10 +75,11 @@ export default function NavBar({
     cursor: "pointer",
   })
 
-  const cta = {
-    background: ctaHover ? "var(--color-text)" : "transparent",
+  const ctaStyle = {
+    background: ctaHover ? "var(--color-accent)" : "transparent",
     color: ctaHover ? "var(--color-bg)" : "var(--color-text)",
-    border: `1px solid var(--color-text)`,
+    border: "1px solid var(--color-text)",
+    borderRadius: "var(--radius)",
     padding: "0.5rem 1.25rem",
     fontSize: "0.8rem",
     letterSpacing: "0.08em",
@@ -144,46 +134,48 @@ export default function NavBar({
   return (
     <>
       <nav style={bar}>
-        {/* Logo */}
-        <a href="/" style={logo}>
-          {logoSrc ? (
-            <img src={logoSrc} alt={logoText} style={{ height: 40, width: "auto" }} />
+        {/* Logo / brand */}
+        <a href="/" style={logoStyle}>
+          {logo ? (
+            <img src={logo} alt={name || "Home"} style={{ height: 40, width: "auto" }} />
           ) : (
-            <span>{logoText}</span>
+            <span>{name}</span>
           )}
         </a>
 
         {/* Desktop links */}
-        <ul style={desktopLinks} className="distro-nav-desktop">
-          {links.map((l, i) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                style={linkStyle(i)}
-                onMouseEnter={() => setHoveredLink(i)}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {nav.length > 0 ? (
+          <ul style={desktopLinks} className="bp-solid-nav-desktop">
+            {nav.map((l, i) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  style={linkStyle(i)}
+                  onMouseEnter={() => setHoveredLink(i)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : null}
 
         {/* CTA */}
         <a
           href={ctaHref}
-          style={cta}
-          className="distro-nav-cta"
+          style={ctaStyle}
+          className="bp-solid-nav-cta"
           onMouseEnter={() => setCtaHover(true)}
           onMouseLeave={() => setCtaHover(false)}
         >
           {ctaLabel}
         </a>
 
-        {/* Hamburger — shown via media query class below */}
+        {/* Hamburger - shown via media query class below */}
         <button
           style={hamburger}
-          className="distro-nav-hamburger"
+          className="bp-solid-nav-hamburger"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -193,12 +185,7 @@ export default function NavBar({
               transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
             }}
           />
-          <span
-            style={{
-              ...hamburgerLine,
-              opacity: mobileOpen ? 0 : 1,
-            }}
-          />
+          <span style={{ ...hamburgerLine, opacity: mobileOpen ? 0 : 1 }} />
           <span
             style={{
               ...hamburgerLine,
@@ -210,14 +197,14 @@ export default function NavBar({
 
       {/* Mobile overlay */}
       <div style={overlay}>
-        {links.map((l) => (
+        {nav.map((l) => (
           <a key={l.href} href={l.href} style={overlayLink} onClick={() => setMobileOpen(false)}>
             {l.label}
           </a>
         ))}
         <a
           href={ctaHref}
-          style={{ ...cta, fontSize: "1rem", padding: "0.75rem 2rem" }}
+          style={{ ...ctaStyle, fontSize: "1rem", padding: "0.75rem 2rem" }}
           onClick={() => setMobileOpen(false)}
         >
           {ctaLabel}
@@ -226,11 +213,13 @@ export default function NavBar({
 
       <style>{`
         @media (max-width: 767px) {
-          .distro-nav-desktop { display: none !important; }
-          .distro-nav-cta     { display: none !important; }
-          .distro-nav-hamburger { display: flex !important; }
+          .bp-solid-nav-desktop { display: none !important; }
+          .bp-solid-nav-cta     { display: none !important; }
+          .bp-solid-nav-hamburger { display: flex !important; }
         }
       `}</style>
     </>
   )
 }
+
+registerVariant("navbar", "solid-bar", SolidBar)
