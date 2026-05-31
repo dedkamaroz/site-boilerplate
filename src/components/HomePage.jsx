@@ -13,7 +13,7 @@ import Footer              from "./Footer"
 
 export default function HomePage() {
   return (
-    <div style={{ background: "#0D0D0D", minHeight: "100vh" }}>
+    <div style={{ background: "var(--color-bg)", minHeight: "100vh" }}>
       <NavBar
         logoSrc="/assets/logo/logo.webp"
       />

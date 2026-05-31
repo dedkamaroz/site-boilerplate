@@ -2,12 +2,6 @@
 // Two rows: top scrolls left, bottom scrolls right.
 // Pass logos as [{src, alt}] or leave default for text placeholders.
 
-const C = {
-  bg:     "#0D0D0D",
-  border: "#2A2A2A",
-  muted:  "#888888",
-}
-
 const defaultLogos = [
   { src: "", alt: "Samsung"  },
   { src: "", alt: "Audi"     },
@@ -44,8 +38,8 @@ function LogoItem({ src, alt }) {
   return (
     <div style={wrap}>
       <span style={{
-        color:         C.muted,
-        fontFamily:    '"Inter", "Helvetica Neue", sans-serif',
+        color:         "var(--color-muted)",
+        fontFamily:    "var(--font-body)",
         fontSize:      "0.75rem",
         fontWeight:    600,
         letterSpacing: "0.18em",
@@ -87,17 +81,17 @@ export default function ClientLogoMarquee({
   const section = {
     width:       "100%",
     boxSizing:   "border-box",
-    background:  C.bg,
-    borderTop:   `1px solid ${C.border}`,
-    borderBottom: `1px solid ${C.border}`,
+    background:  "var(--color-bg)",
+    borderTop:   `1px solid var(--color-border)`,
+    borderBottom: `1px solid var(--color-border)`,
     padding:     "2.5rem 0",
     overflow:    "hidden",
-    fontFamily:  '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:  "var(--font-body)",
   }
 
   const labelStyle = {
     textAlign:     "center",
-    color:         C.muted,
+    color:         "var(--color-muted)",
     fontSize:      "0.7rem",
     letterSpacing: "0.22em",
     textTransform: "uppercase",

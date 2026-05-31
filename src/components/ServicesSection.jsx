@@ -1,13 +1,5 @@
 import { useState } from "react"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
 const defaultServices = [
   {
     name:        "CGI Production",
@@ -51,14 +43,14 @@ function ServiceItem({ service, index, ctaHref }) {
     gap:                 "0 2rem",
     alignItems:          "start",
     padding:             "2rem 0",
-    borderBottom:        `1px solid ${C.border}`,
+    borderBottom:        `1px solid var(--color-border)`,
     cursor:              "default",
     transition:          "background 0.2s ease",
   }
 
   const num = {
-    color:              hovered ? C.muted : "#333",
-    fontFamily:         '"Inter", sans-serif',
+    color:              hovered ? "var(--color-muted)" : "var(--color-border)",
+    fontFamily:         "var(--font-body)",
     fontSize:           "0.8rem",
     letterSpacing:      "0.08em",
     paddingTop:         "2px",
@@ -73,22 +65,22 @@ function ServiceItem({ service, index, ctaHref }) {
   }
 
   const nameStyle = {
-    color:         hovered ? C.text : "#B0B0B0",
+    color:         hovered ? "var(--color-text)" : "var(--color-muted)",
     fontSize:      "clamp(1.15rem, 2vw, 1.5rem)",
     fontWeight:    600,
     letterSpacing: "-0.01em",
     margin:        0,
     transition:    "color 0.2s ease",
-    fontFamily:    '"Inter", sans-serif',
+    fontFamily:    "var(--font-heading)",
   }
 
   const descStyle = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.88rem",
     lineHeight: 1.65,
     margin:     0,
     maxWidth:   580,
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: "var(--font-body)",
   }
 
   const tagsRow = {
@@ -99,28 +91,28 @@ function ServiceItem({ service, index, ctaHref }) {
   }
 
   const tag = {
-    color:         "#444",
+    color:         "var(--color-muted)",
     fontSize:      "0.65rem",
     letterSpacing: "0.14em",
     textTransform: "uppercase",
-    border:        `1px solid #2A2A2A`,
+    border:        `1px solid var(--color-border)`,
     padding:       "2px 8px",
-    fontFamily:    '"Inter", sans-serif',
+    fontFamily:    "var(--font-body)",
   }
 
   const pricing = {
-    color:         hovered ? C.text : C.muted,
+    color:         hovered ? "var(--color-text)" : "var(--color-muted)",
     fontSize:      "0.82rem",
     letterSpacing: "0.04em",
     whiteSpace:    "nowrap",
     paddingTop:    "3px",
     transition:    "color 0.2s ease",
-    fontFamily:    '"Inter", sans-serif',
+    fontFamily:    "var(--font-body)",
     textDecoration: "none",
   }
 
   const rightCol = service.ctaLink
-    ? <a href={service.ctaLink} style={{ ...pricing, borderBottom: `1px solid ${hovered ? C.text : C.border}` }}>
+    ? <a href={service.ctaLink} style={{ ...pricing, borderBottom: `1px solid ${hovered ? "var(--color-text)" : "var(--color-border)"}` }}>
         {service.from} →
       </a>
     : <span style={pricing}>{service.from}</span>
@@ -162,9 +154,9 @@ export default function ServicesSection({
   const section = {
     width:      "100%",
     boxSizing:  "border-box",
-    background: C.bg,
+    background: "var(--color-bg)",
     padding:    "6rem 2rem",
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily: "var(--font-body)",
   }
 
   const inner = {
@@ -178,11 +170,11 @@ export default function ServicesSection({
     alignItems:     "baseline",
     marginBottom:   "1rem",
     paddingBottom:  "1.5rem",
-    borderBottom:   `1px solid ${C.border}`,
+    borderBottom:   `1px solid var(--color-border)`,
   }
 
   const heading = {
-    color:         C.text,
+    color:         "var(--color-text)",
     fontSize:      "clamp(1rem, 1.5vw, 1.15rem)",
     fontWeight:    400,
     letterSpacing: "0.18em",
@@ -191,7 +183,7 @@ export default function ServicesSection({
   }
 
   const count = {
-    color:         C.muted,
+    color:         "var(--color-muted)",
     fontSize:      "0.78rem",
     letterSpacing: "0.06em",
   }
@@ -203,9 +195,9 @@ export default function ServicesSection({
   }
 
   const cta = {
-    background:     ctaHover ? C.text : "transparent",
-    color:          ctaHover ? C.bg : C.text,
-    border:         `1px solid ${C.text}`,
+    background:     ctaHover ? "var(--color-text)" : "transparent",
+    color:          ctaHover ? "var(--color-bg)" : "var(--color-text)",
+    border:         `1px solid var(--color-text)`,
     padding:        "0.85rem 2.5rem",
     fontSize:       "0.82rem",
     letterSpacing:  "0.1em",

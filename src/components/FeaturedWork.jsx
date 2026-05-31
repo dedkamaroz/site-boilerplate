@@ -1,14 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import { getFeatured } from "../data/projects"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
 const defaultItems = [
   {
     slug:        "next-gen",
@@ -104,7 +96,7 @@ function FeaturedCard({ item, index, href = "#" }) {
     width:        mediaW,
     aspectRatio:  "16/10",
     overflow:     "hidden",
-    background:   C.surface,
+    background:   "var(--color-surface)",
     flexShrink:   0,
   }
 
@@ -120,42 +112,42 @@ function FeaturedCard({ item, index, href = "#" }) {
 
   const categoryTag = {
     display:       "inline-block",
-    color:         C.muted,
+    color:         "var(--color-muted)",
     fontSize:      "0.7rem",
     letterSpacing: "0.18em",
     textTransform: "uppercase",
     marginBottom:  "0.75rem",
-    fontFamily:    '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:    "var(--font-body)",
   }
 
   const titleStyle = {
-    color:        C.text,
+    color:        "var(--color-text)",
     fontSize:     "clamp(1.8rem, 3vw, 2.75rem)",
     fontWeight:   700,
     lineHeight:   1.05,
     letterSpacing: "-0.02em",
     margin:       "0 0 1rem",
-    fontFamily:   '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:   "var(--font-heading)",
   }
 
   const descStyle = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.95rem",
     lineHeight: 1.7,
     margin:     "0 0 1.75rem",
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily: "var(--font-body)",
   }
 
   const linkStyle = {
-    color:          C.text,
+    color:          "var(--color-text)",
     textDecoration: "none",
     fontSize:       "0.8rem",
     letterSpacing:  "0.1em",
     textTransform:  "uppercase",
-    borderBottom:   `1px solid ${C.border}`,
+    borderBottom:   `1px solid var(--color-border)`,
     paddingBottom:  "2px",
     transition:     "border-color 0.2s ease",
-    fontFamily:     '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:     "var(--font-body)",
   }
 
   const textCol = {
@@ -164,10 +156,10 @@ function FeaturedCard({ item, index, href = "#" }) {
   }
 
   const clientStyle = {
-    color:         C.muted,
+    color:         "var(--color-muted)",
     fontSize:      "0.75rem",
     letterSpacing: "0.1em",
-    fontFamily:    '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:    "var(--font-body)",
     marginTop:     "0.5rem",
   }
 
@@ -202,10 +194,10 @@ function FeaturedCard({ item, index, href = "#" }) {
           position:      "absolute",
           bottom:        "1rem",
           right:         "1rem",
-          color:         C.muted,
+          color:         "var(--color-muted)",
           fontSize:      "0.7rem",
           letterSpacing: "0.1em",
-          fontFamily:    '"Inter", sans-serif',
+          fontFamily:    "var(--font-body)",
           opacity:       0.6,
         }}>
           0{index + 1}
@@ -232,9 +224,9 @@ export default function FeaturedWork({
   const section = {
     width:      "100%",
     boxSizing:  "border-box",
-    background: C.bg,
+    background: "var(--color-bg)",
     padding:    "6rem 2rem",
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily: "var(--font-body)",
   }
 
   const inner = {
@@ -250,7 +242,7 @@ export default function FeaturedWork({
   }
 
   const heading = {
-    color:         C.text,
+    color:         "var(--color-text)",
     fontSize:      "clamp(1rem, 1.5vw, 1.15rem)",
     fontWeight:    400,
     letterSpacing: "0.18em",
@@ -259,12 +251,12 @@ export default function FeaturedWork({
   }
 
   const viewAll = {
-    color:          C.muted,
+    color:          "var(--color-muted)",
     textDecoration: "none",
     fontSize:       "0.78rem",
     letterSpacing:  "0.1em",
     textTransform:  "uppercase",
-    borderBottom:   `1px solid ${C.border}`,
+    borderBottom:   `1px solid var(--color-border)`,
     paddingBottom:  "2px",
   }
 

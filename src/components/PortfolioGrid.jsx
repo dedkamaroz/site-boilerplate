@@ -1,15 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { projects as allProjects } from "../data/projects"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
-const CATEGORIES = ["All", "CGI", "Motion Graphics", "3D Viz", "FOOH"]
+const CATEGORIES =["All", "CGI", "Motion Graphics", "3D Viz", "FOOH"]
 
 const defaultItems = [
   {
@@ -142,7 +134,7 @@ function PortfolioCard({ item }) {
   const card = {
     position:   "relative",
     overflow:   "hidden",
-    background: C.surface,
+    background: "var(--color-surface)",
     aspectRatio: "4/3",
     cursor:     "pointer",
     opacity:    visible ? 1 : 0,
@@ -164,8 +156,8 @@ function PortfolioCard({ item }) {
     position:   "absolute",
     inset:      0,
     background: hovered
-      ? "linear-gradient(to top, rgba(13,13,13,0.9) 0%, rgba(13,13,13,0.2) 60%, transparent 100%)"
-      : "linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 60%)",
+      ? "linear-gradient(to top, color-mix(in srgb, var(--color-bg) 90%, transparent) 0%, color-mix(in srgb, var(--color-bg) 20%, transparent) 60%, transparent 100%)"
+      : "linear-gradient(to top, color-mix(in srgb, var(--color-bg) 70%, transparent) 0%, transparent 60%)",
     transition: "background 0.35s ease",
   }
 
@@ -181,26 +173,26 @@ function PortfolioCard({ item }) {
   }
 
   const catTag = {
-    color:         C.muted,
+    color:         "var(--color-muted)",
     fontSize:      "0.65rem",
     letterSpacing: "0.18em",
     textTransform: "uppercase",
-    fontFamily:    '"Inter", sans-serif',
+    fontFamily:    "var(--font-body)",
   }
 
   const titleStyle = {
-    color:        C.text,
+    color:        "var(--color-text)",
     fontSize:     "1rem",
     fontWeight:   600,
     margin:       0,
-    fontFamily:   '"Inter", sans-serif',
+    fontFamily:   "var(--font-heading)",
     letterSpacing: "-0.01em",
   }
 
   const yearStyle = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.7rem",
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: "var(--font-body)",
     opacity:    hovered ? 1 : 0,
     transform:  hovered ? "translateY(0)" : "translateY(4px)",
     transition: "opacity 0.2s ease, transform 0.2s ease",
@@ -255,9 +247,9 @@ export default function PortfolioGrid({
   const section = {
     width:      "100%",
     boxSizing:  "border-box",
-    background: C.bg,
+    background: "var(--color-bg)",
     padding:    "6rem 2rem",
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily: "var(--font-body)",
     minHeight:  "70vh",
   }
 
@@ -274,7 +266,7 @@ export default function PortfolioGrid({
   }
 
   const heading = {
-    color:         C.text,
+    color:         "var(--color-text)",
     fontSize:      "clamp(1rem, 1.5vw, 1.15rem)",
     fontWeight:    400,
     letterSpacing: "0.18em",
@@ -283,7 +275,7 @@ export default function PortfolioGrid({
   }
 
   const countStyle = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.78rem",
     letterSpacing: "0.04em",
   }
@@ -296,15 +288,15 @@ export default function PortfolioGrid({
   }
 
   const filterBtn = (cat) => ({
-    background:    active === cat ? C.text : "transparent",
-    color:         active === cat ? C.bg : C.muted,
-    border:        `1px solid ${active === cat ? C.text : C.border}`,
+    background:    active === cat ? "var(--color-text)" : "transparent",
+    color:         active === cat ? "var(--color-bg)" : "var(--color-muted)",
+    border:        `1px solid ${active === cat ? "var(--color-text)" : "var(--color-border)"}`,
     padding:       "0.4rem 1rem",
     fontSize:      "0.72rem",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
     cursor:        "pointer",
-    fontFamily:    '"Inter", sans-serif',
+    fontFamily:    "var(--font-body)",
     transition:    "all 0.2s ease",
   })
 
@@ -312,7 +304,7 @@ export default function PortfolioGrid({
     display:             "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap:                 "1px",
-    background:          C.border,
+    background:          "var(--color-border)",
   }
 
   return (

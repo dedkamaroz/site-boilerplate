@@ -1,13 +1,5 @@
 import { useState } from "react"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
 const navLinks = [
   { label: "Work",     href: "/work" },
   { label: "Services", href: "/services" },
@@ -27,9 +19,9 @@ export default function Footer({
   const footer = {
     width:      "100%",
     boxSizing:  "border-box",
-    background: C.bg,
-    borderTop:  `1px solid ${C.border}`,
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    background: "var(--color-bg)",
+    borderTop:  `1px solid var(--color-border)`,
+    fontFamily: "var(--font-body)",
   }
 
   const inner = {
@@ -53,7 +45,7 @@ export default function Footer({
   }
 
   const logoStyle = {
-    color:          C.text,
+    color:          "var(--color-text)",
     fontWeight:     700,
     fontSize:       "1rem",
     letterSpacing:  "0.12em",
@@ -62,7 +54,7 @@ export default function Footer({
   }
 
   const taglineStyle = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.8rem",
     letterSpacing: "0.06em",
     lineHeight: 1.6,
@@ -76,7 +68,7 @@ export default function Footer({
   }
 
   const navLinkStyle = (i) => ({
-    color:          hovered === `nav-${i}` ? C.text : C.muted,
+    color:          hovered === `nav-${i}` ? "var(--color-text)" : "var(--color-muted)",
     textDecoration: "none",
     fontSize:       "0.8rem",
     letterSpacing:  "0.08em",
@@ -97,7 +89,7 @@ export default function Footer({
   }
 
   const socialIcon = (key) => ({
-    color:      hovered === `soc-${key}` ? C.text : C.muted,
+    color:      hovered === `soc-${key}` ? "var(--color-text)" : "var(--color-muted)",
     transition: "color 0.2s ease",
     cursor:     "pointer",
     textDecoration: "none",
@@ -105,7 +97,7 @@ export default function Footer({
   })
 
   const emailStyle = {
-    color:          hovered === "email" ? C.text : C.muted,
+    color:          hovered === "email" ? "var(--color-text)" : "var(--color-muted)",
     textDecoration: "none",
     fontSize:       "0.8rem",
     letterSpacing:  "0.04em",
@@ -113,7 +105,7 @@ export default function Footer({
   }
 
   const bar = {
-    borderTop:      `1px solid ${C.border}`,
+    borderTop:      `1px solid var(--color-border)`,
     paddingTop:     "1.5rem",
     display:        "flex",
     justifyContent: "space-between",
@@ -123,7 +115,7 @@ export default function Footer({
   }
 
   const barText = {
-    color:      C.muted,
+    color:      "var(--color-muted)",
     fontSize:   "0.75rem",
     letterSpacing: "0.04em",
   }
@@ -172,7 +164,7 @@ export default function Footer({
               href={`tel:${phone.replace(/\s/g, "")}`}
               style={{
                 ...emailStyle,
-                color: hovered === "phone" ? C.text : C.muted,
+                color: hovered === "phone" ? "var(--color-text)" : "var(--color-muted)",
               }}
               onMouseEnter={() => setHovered("phone")}
               onMouseLeave={() => setHovered(null)}

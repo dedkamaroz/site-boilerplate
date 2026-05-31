@@ -1,11 +1,5 @@
 import { useRef, useEffect, useState } from "react"
 
-const C = {
-  bg:   "#0D0D0D",
-  text: "#F0F0F0",
-  muted: "#888888",
-}
-
 export default function Hero({
   videoSrc    = "/assets/portfolio/showreel.mp4",
   headline    = "We Make the Impossible Look Real",
@@ -35,8 +29,8 @@ export default function Hero({
     display:    "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: C.bg,
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    background: "var(--color-bg)",
+    fontFamily: "var(--font-body)",
   }
 
   const videoBg = {
@@ -53,8 +47,8 @@ export default function Hero({
     position: "absolute",
     inset:    0,
     background: videoSrc
-      ? "linear-gradient(to bottom, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.1) 40%, rgba(13,13,13,0.1) 60%, rgba(13,13,13,0.7) 100%)"
-      : "linear-gradient(135deg, #0D0D0D 0%, #161616 50%, #0D0D0D 100%)",
+      ? "linear-gradient(to bottom, color-mix(in srgb, var(--color-bg) 55%, transparent) 0%, color-mix(in srgb, var(--color-bg) 10%, transparent) 40%, color-mix(in srgb, var(--color-bg) 10%, transparent) 60%, color-mix(in srgb, var(--color-bg) 70%, transparent) 100%)"
+      : "linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 50%, var(--color-bg) 100%)",
   }
 
   const content = {
@@ -66,16 +60,17 @@ export default function Hero({
   }
 
   const h1 = {
-    color:        C.text,
+    color:        "var(--color-text)",
     fontSize:     "clamp(2.5rem, 6vw, 5rem)",
     fontWeight:   700,
     lineHeight:   1.05,
     letterSpacing: "-0.02em",
     margin:       "0 0 1.25rem",
+    fontFamily:   "var(--font-heading)",
   }
 
   const sub = {
-    color:        C.muted,
+    color:        "var(--color-muted)",
     fontSize:     "clamp(0.9rem, 1.5vw, 1.1rem)",
     letterSpacing: "0.18em",
     textTransform: "uppercase",
@@ -85,9 +80,9 @@ export default function Hero({
 
   const ctaBtn = {
     display:        "inline-block",
-    background:     ctaHover ? C.text : "transparent",
-    color:          ctaHover ? C.bg : C.text,
-    border:         `1px solid ${C.text}`,
+    background:     ctaHover ? "var(--color-text)" : "transparent",
+    color:          ctaHover ? "var(--color-bg)" : "var(--color-text)",
+    border:         `1px solid var(--color-text)`,
     padding:        "0.85rem 2.25rem",
     fontSize:       "0.85rem",
     letterSpacing:  "0.1em",
@@ -108,7 +103,7 @@ export default function Hero({
     alignItems: "center",
     gap:        "0.4rem",
     cursor:     "pointer",
-    color:      scrollHover ? C.text : C.muted,
+    color:      scrollHover ? "var(--color-text)" : "var(--color-muted)",
     transition: "color 0.2s ease",
     textDecoration: "none",
   }

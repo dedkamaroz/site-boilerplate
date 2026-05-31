@@ -1,13 +1,5 @@
 import { useRef, useState } from "react"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
 const defaultTestimonials = [
   {
     quote:   "DISTRO 3D delivered renders indistinguishable from real photography. Saved us an entire product shoot.",
@@ -45,8 +37,8 @@ function QuoteCard({ testimonial }) {
   return (
     <div
       style={{
-        background:    hovered ? C.surface : "transparent",
-        border:        `1px solid ${hovered ? "#3A3A3A" : C.border}`,
+        background:    hovered ? "var(--color-surface)" : "transparent",
+        border:        `1px solid ${hovered ? "var(--color-muted)" : "var(--color-border)"}`,
         padding:       "2rem",
         // Each card is exactly 1/3 of the track container minus gaps
         flex:          `0 0 calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})`,
@@ -60,17 +52,17 @@ function QuoteCard({ testimonial }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ color: "#2A2A2A", fontSize: "3rem", lineHeight: 1, fontFamily: "Georgia, serif", marginBottom: "-0.5rem" }}>
+      <div style={{ color: "var(--color-border)", fontSize: "3rem", lineHeight: 1, fontFamily: "Georgia, serif", marginBottom: "-0.5rem" }}>
         &ldquo;
       </div>
-      <p style={{ color: C.text, fontSize: "0.92rem", lineHeight: 1.7, margin: 0, fontFamily: '"Inter", sans-serif', flexGrow: 1 }}>
+      <p style={{ color: "var(--color-text)", fontSize: "0.92rem", lineHeight: 1.7, margin: 0, fontFamily: "var(--font-body)", flexGrow: 1 }}>
         {testimonial.quote}
       </p>
-      <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: "1rem" }}>
-        <p style={{ color: C.text, fontSize: "0.82rem", fontWeight: 600, margin: "0 0 0.15rem", fontFamily: '"Inter", sans-serif' }}>
+      <div style={{ borderTop: `1px solid var(--color-border)`, paddingTop: "1rem" }}>
+        <p style={{ color: "var(--color-text)", fontSize: "0.82rem", fontWeight: 600, margin: "0 0 0.15rem", fontFamily: "var(--font-body)" }}>
           {testimonial.name}
         </p>
-        <p style={{ color: C.muted, fontSize: "0.75rem", letterSpacing: "0.04em", margin: 0, fontFamily: '"Inter", sans-serif' }}>
+        <p style={{ color: "var(--color-muted)", fontSize: "0.75rem", letterSpacing: "0.04em", margin: 0, fontFamily: "var(--font-body)" }}>
           {testimonial.company}
         </p>
       </div>
@@ -106,9 +98,9 @@ export default function TestimonialsStrip({
   const section = {
     width:      "100%",
     boxSizing:  "border-box",
-    background: C.bg,
+    background: "var(--color-bg)",
     padding:    "6rem 0",
-    fontFamily: '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily: "var(--font-body)",
     overflow:   "hidden",
   }
 
@@ -123,7 +115,7 @@ export default function TestimonialsStrip({
   }
 
   const heading = {
-    color:         C.text,
+    color:         "var(--color-text)",
     fontSize:      "clamp(1rem, 1.5vw, 1.15rem)",
     fontWeight:    400,
     letterSpacing: "0.18em",
@@ -155,7 +147,7 @@ export default function TestimonialsStrip({
     width:        i === current ? "1.5rem" : "0.4rem",
     height:       "0.4rem",
     borderRadius: "2px",
-    background:   i === current ? C.text : C.border,
+    background:   i === current ? "var(--color-text)" : "var(--color-border)",
     border:       "none",
     padding:      0,
     cursor:       "pointer",

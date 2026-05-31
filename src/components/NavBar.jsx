@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react"
 
-const C = {
-  bg:      "#0D0D0D",
-  surface: "#161616",
-  border:  "#2A2A2A",
-  text:    "#F0F0F0",
-  muted:   "#888888",
-}
-
 const NAV_HEIGHT = 72
 
 const defaultLinks = [
@@ -54,14 +46,14 @@ export default function NavBar({
     justifyContent:  "space-between",
     padding:         "0 2rem",
     transition:      "background 0.3s ease, border-color 0.3s ease",
-    background:      scrolled ? C.surface : "transparent",
-    borderBottom:    scrolled ? `1px solid ${C.border}` : "1px solid transparent",
+    background:      scrolled ? "var(--color-surface)" : "transparent",
+    borderBottom:    scrolled ? `1px solid var(--color-border)` : "1px solid transparent",
     boxSizing:       "border-box",
-    fontFamily:      '"Inter", "Helvetica Neue", sans-serif',
+    fontFamily:      "var(--font-body)",
   }
 
   const logo = {
-    color:          C.text,
+    color:          "var(--color-text)",
     fontWeight:     700,
     fontSize:       "1.1rem",
     letterSpacing:  "0.12em",
@@ -83,7 +75,7 @@ export default function NavBar({
   }
 
   const linkStyle = (i) => ({
-    color:          hoveredLink === i ? C.text : C.muted,
+    color:          hoveredLink === i ? "var(--color-text)" : "var(--color-muted)",
     textDecoration: "none",
     fontSize:       "0.875rem",
     letterSpacing:  "0.06em",
@@ -93,9 +85,9 @@ export default function NavBar({
   })
 
   const cta = {
-    background:     ctaHover ? C.text : "transparent",
-    color:          ctaHover ? C.bg : C.text,
-    border:         `1px solid ${C.text}`,
+    background:     ctaHover ? "var(--color-text)" : "transparent",
+    color:          ctaHover ? "var(--color-bg)" : "var(--color-text)",
+    border:         `1px solid var(--color-text)`,
     padding:        "0.5rem 1.25rem",
     fontSize:       "0.8rem",
     letterSpacing:  "0.08em",
@@ -119,7 +111,7 @@ export default function NavBar({
   const hamburgerLine = {
     width:        "22px",
     height:       "2px",
-    background:   C.text,
+    background:   "var(--color-text)",
     transition:   "all 0.2s ease",
   }
 
@@ -127,7 +119,7 @@ export default function NavBar({
     position:   "fixed",
     inset:      0,
     zIndex:     99,
-    background: C.bg,
+    background: "var(--color-bg)",
     display:    "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -139,7 +131,7 @@ export default function NavBar({
   }
 
   const overlayLink = {
-    color:          C.text,
+    color:          "var(--color-text)",
     textDecoration: "none",
     fontSize:       "2rem",
     fontWeight:     300,
