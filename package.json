@@ -1,0 +1,35 @@
+{
+  "name": "site-boilerplate",
+  "version": "0.1.0",
+  "description": "Config-driven, multi-industry website boilerplate. One site.config.js drives brand, theme, pages and section order.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/validate-config.mjs && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . && prettier --check .",
+    "gallery": "vite --config vite.gallery.config.js",
+    "new-site": "node scripts/new-site.mjs",
+    "fingerprint": "node scripts/fingerprint.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.3.3",
+    "vite": "^5.4.0",
+    "vitest": "^2.1.1"
+  }
+}

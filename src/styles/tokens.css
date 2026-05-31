@@ -1,0 +1,24 @@
+:root {
+  /* Colours */
+  --color-bg:       #0D0D0D;
+  --color-surface:  #161616;
+  --color-border:   #2A2A2A;
+  --color-text:     #F0F0F0;
+  --color-muted:    #888888;
+  --color-accent:   #FFFFFF;
+
+  /* Typography */
+  --font-sans:      "Inter", "Helvetica Neue", sans-serif;
+  --font-display:   "Inter", sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+
+  /* Layout */
+  --max-width:  1280px;
+  --nav-height: 72px;
+}
