@@ -37,3 +37,30 @@ import "./featured/Cards"
 import "./footer/ThreeColumn"
 import "./footer/Stacked"
 import "./footer/CompactBar"
+
+// pricing
+import "./pricing/TiersCards"
+import "./pricing/ComparisonTable"
+import "./pricing/SimpleList"
+
+// serviceArea
+import "./serviceArea/SuburbList"
+import "./serviceArea/MapEmbed"
+
+// faq
+import "./faq/Accordion"
+import "./faq/TwoColumn"
+
+// ctaBanner
+import "./ctaBanner/FullBleed"
+import "./ctaBanner/Boxed"
+import "./ctaBanner/Split"
+
+// contact
+import "./contact/FormLeftDetailsRight"
+import "./contact/Stacked"
+import "./contact/DetailsOnly"
+
+// steps
+import "./steps/NumberedRow"
+import "./steps/VerticalTimeline"
