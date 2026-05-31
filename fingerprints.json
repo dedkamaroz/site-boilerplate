@@ -11,5 +11,41 @@
       "footer/three-column"
     ],
     "signature": "editorial-dark|navbar/transparent-scroll,hero/centred-over-media,services/numbered-list,testimonials/drag-strip,contact/form-left-details-right,footer/three-column"
+  },
+  {
+    "name": "NorthFlow Plumbing",
+    "preset": "tradesman",
+    "variants": [
+      "navbar/solid-bar",
+      "hero/split-left",
+      "services/numbered-list",
+      "steps/numbered-row",
+      "testimonials/drag-strip",
+      "ctaBanner/full-bleed",
+      "services/card-grid",
+      "faq/accordion",
+      "serviceArea/suburb-list",
+      "contact/form-left-details-right",
+      "footer/three-column"
+    ],
+    "signature": "tradesman|navbar/solid-bar,hero/split-left,services/numbered-list,steps/numbered-row,testimonials/drag-strip,ctaBanner/full-bleed,services/card-grid,faq/accordion,serviceArea/suburb-list,contact/form-left-details-right,footer/three-column"
+  },
+  {
+    "name": "Meridian Advisory",
+    "preset": "corporate",
+    "variants": [
+      "navbar/transparent-scroll",
+      "hero/minimal-card",
+      "logoMarquee/static-grid",
+      "featured/cards",
+      "steps/vertical-timeline",
+      "testimonials/stacked-quotes",
+      "ctaBanner/boxed",
+      "pricing/tiers-cards",
+      "faq/two-column",
+      "contact/stacked",
+      "footer/stacked"
+    ],
+    "signature": "corporate|navbar/transparent-scroll,hero/minimal-card,logoMarquee/static-grid,featured/cards,steps/vertical-timeline,testimonials/stacked-quotes,ctaBanner/boxed,pricing/tiers-cards,faq/two-column,contact/stacked,footer/stacked"
   }
 ]
