@@ -2,7 +2,7 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Convert the DISTRO 3D Vite + React site into a config-driven, multi-industry website boilerplate where a new site is produced by editing one `site.config.js`, with strong visual divergence between generated sites and full project tooling (CLI generator, preview gallery, config validation, CI, GitHub repo).
+**Goal:** Convert an existing Vite + React agency site into a config-driven, multi-industry website boilerplate where a new site is produced by editing one `site.config.js`, with strong visual divergence between generated sites and full project tooling (CLI generator, preview gallery, config validation, CI, GitHub repo).
 
 **Architecture:** A single `site.config.js` drives a `ThemeProvider` (CSS custom properties from theme presets), a `<PageRenderer>` (resolves `{type, variant}` against a section registry), and a React Router (one route per configured page). Components read only from config and theme tokens - never client-specific literals. Strong disguise comes from preset personalities x per-section layout variants, guarded by a fingerprint-collision check.
 
@@ -17,7 +17,7 @@ Read first: `docs/plans/2026-06-01-boilerplate-design.md`. It holds the full sch
 ## Conventions for the executor
 
 - Repo root paths are relative to the boilerplate repo (the user will move this
-  out of the current `distro3d` folder into its own repo before/early in the
+  out of the original project folder into its own repo before/early in the
   build). Treat `./` as that repo root.
 - Australian English in all user-facing strings and docs (colour, organise,
   licence). Never use the "-" em dash character; use a plain hyphen.
@@ -34,7 +34,7 @@ Read first: `docs/plans/2026-06-01-boilerplate-design.md`. It holds the full sch
 
 **Files:**
 
-- Create: `./package.json` (start from the existing distro3d one)
+- Create: `./package.json` (start from the original project's one)
 - Create: `./.gitignore`
 - Create: `./README.md` (stub)
 
@@ -42,7 +42,7 @@ Read first: `docs/plans/2026-06-01-boilerplate-design.md`. It holds the full sch
 vite.config.js, package.json) into the new repo root.
 
 **Step 2:** Rename the project in `package.json` to `site-boilerplate`, bump
-version to `0.1.0`, and remove distro3d-specific metadata.
+version to `0.1.0`, and remove the original project's metadata.
 
 **Step 3:** Add dev dependencies: `vitest`, `@testing-library/react`,
 `@testing-library/jest-dom`, `jsdom`, `eslint`, `prettier`, `react-router-dom`.
@@ -73,7 +73,7 @@ file importing `@testing-library/jest-dom`).
 
 ```bash
 git add -A
-git commit -m "chore: initialise site-boilerplate from distro3d"
+git commit -m "initialise the site-boilerplate project"
 ```
 
 ### Task 0.2: Create the online GitHub repo

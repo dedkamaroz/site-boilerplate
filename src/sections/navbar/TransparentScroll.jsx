@@ -1,7 +1,7 @@
 import NavBar from "../../components/NavBar"
 import { registerVariant } from "../registry"
 
-// navbar / transparent-scroll: the original DISTRO 3D bar - transparent over the
+// navbar / transparent-scroll: the original agency bar - transparent over the
 // hero, solidifies on scroll. Adapts config brand + nav into the underlying
 // NavBar's props so no client literals live in the component.
 export function TransparentScroll({ brand = {}, nav = [], cta = {}, ...rest }) {

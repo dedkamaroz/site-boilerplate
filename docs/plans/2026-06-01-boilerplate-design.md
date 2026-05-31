@@ -2,11 +2,11 @@
 
 Date: 01/06/2026
 Status: Approved design, ready for implementation planning
-Origin: Generalised from the DISTRO 3D video-agency site (Vite + React)
+Origin: Generalised from an existing video-agency site (Vite + React)
 
 ## 1. Purpose
 
-Turn the DISTRO 3D site into a neutral, config-driven starter from which new
+Turn the existing agency site into a neutral, config-driven starter from which new
 websites for unrelated industries (plumber, business consultancy, etc.) can be
 spun up quickly. A new site is produced by editing one config file and dropping
 in assets - the React components are never edited per client.
@@ -159,7 +159,7 @@ export default {
 
 ## 5. Section catalogue
 
-### A. Adapted from existing DISTRO 3D components
+### A. Adapted from existing agency components
 
 - `navbar` - now reads brand fields.
 - `hero` - headline/subline/CTA; `media.kind` image or video.

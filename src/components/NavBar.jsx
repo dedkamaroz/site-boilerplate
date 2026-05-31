@@ -11,7 +11,7 @@ const defaultLinks = [
 
 export default function NavBar({
   logoSrc = "",
-  logoText = "DISTRO 3D",
+  logoText = "Brand",
   links = defaultLinks,
   ctaLabel = "Let's Talk",
   ctaHref = "/contact",
@@ -154,7 +154,7 @@ export default function NavBar({
         </a>
 
         {/* Desktop links */}
-        <ul style={desktopLinks} className="distro-nav-desktop">
+        <ul style={desktopLinks} className="bp-nav-desktop">
           {links.map((l, i) => (
             <li key={l.href}>
               <a
@@ -173,7 +173,7 @@ export default function NavBar({
         <a
           href={ctaHref}
           style={cta}
-          className="distro-nav-cta"
+          className="bp-nav-cta"
           onMouseEnter={() => setCtaHover(true)}
           onMouseLeave={() => setCtaHover(false)}
         >
@@ -183,7 +183,7 @@ export default function NavBar({
         {/* Hamburger — shown via media query class below */}
         <button
           style={hamburger}
-          className="distro-nav-hamburger"
+          className="bp-nav-hamburger"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -226,9 +226,9 @@ export default function NavBar({
 
       <style>{`
         @media (max-width: 767px) {
-          .distro-nav-desktop { display: none !important; }
-          .distro-nav-cta     { display: none !important; }
-          .distro-nav-hamburger { display: flex !important; }
+          .bp-nav-desktop { display: none !important; }
+          .bp-nav-cta     { display: none !important; }
+          .bp-nav-hamburger { display: flex !important; }
         }
       `}</style>
     </>
