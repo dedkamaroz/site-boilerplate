@@ -20,6 +20,7 @@ export function FormLeftDetailsRight({
   intro,
   formEndpoint,
   fields,
+  hiddenFields,
 }) {
   const section = {
     width: "100%",
@@ -56,7 +57,12 @@ export function FormLeftDetailsRight({
         {intro ? <p style={introStyle}>{intro}</p> : null}
         <div style={grid} className="bp-contact-grid">
           <div>
-            <ContactForm brand={brand} formEndpoint={formEndpoint} fields={fields} />
+            <ContactForm
+              brand={brand}
+              formEndpoint={formEndpoint}
+              fields={fields}
+              hiddenFields={hiddenFields}
+            />
           </div>
           <div>
             <ContactDetails brand={brand} />
