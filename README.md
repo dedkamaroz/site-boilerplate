@@ -34,6 +34,10 @@ Two hard requirements distinguish this from a normal template:
 
 3. **Add assets** - drop logos, images and videos into `public/assets/` and
    reference them as `/assets/...` (e.g. `media: { kind: "image", src: "/assets/hero.jpg" }`).
+   If no brand- and theme-specific assets are provided, use the bundled
+   **image-resolver** MCP server (see [Image sourcing](#image-sourcing---the-image-resolver-mcp))
+   to find suitable royalty-free images on Pexels/Unsplash. For each slot, download
+   3 different options so the site owner can easily swap between them later.
 
 4. **Build**:
 
@@ -79,11 +83,64 @@ for the strongest divergence.
 bundles colour, type scale, spacing, radius, case, motion and elevation.
 `theme.colors` and `theme.fonts` override on top.
 
+## Image sourcing - the image-resolver MCP
+
+The repo ships a project-scoped MCP server (`.mcp.json`) that searches
+royalty-free images on **Pexels** and **Unsplash** and is used to fill empty
+media slots while building a site.
+
+Setup:
+
+1. Get a free API key from [Pexels](https://www.pexels.com/api/) (and/or an
+   Unsplash Access Key).
+2. Export it before launching your MCP client so `.mcp.json` can read it - the
+   key is **never committed** (the config interpolates `${PEXELS_API_KEY}`):
+
+   ```
+   # PowerShell:  $env:PEXELS_API_KEY = "..."
+   # bash:        export PEXELS_API_KEY="..."
+   ```
+
+3. The server exposes `search_images`, `get_best_image`, `search_images_batch`
+   and `resolve_image_attribution`. Download 3 options per prominent slot (hero,
+   feature rows) so the owner can swap later; record sources in
+   `public/assets/IMAGE-CREDITS.txt`.
+
+> **Windows note:** if `.js` files are associated with an editor/IDE, `npx`
+> launches of the server can be hijacked by that association and silently fail to
+> connect. Work around it by installing the package globally and pointing the
+> server at Node explicitly:
+> `npm i -g @ahmaddioxide/mcp-image-resolver` then register with
+> `... -- node "<global>/@ahmaddioxide/mcp-image-resolver/build/index.js"`.
+
 ## Wiring the contact form
 
-The `contact` section renders a real form with no backend attached. Set
-`formEndpoint` in the section props to a form handler (Formspree, Netlify Forms,
-or your own URL); if omitted it falls back to `mailto:` the brand email.
+The `contact` section renders a real form. Set `formEndpoint` in the section
+props to a form handler; if omitted it falls back to `mailto:` the brand email
+(so the layout still previews with no backend).
+
+When `formEndpoint` is set the form submits over `fetch` (AJAX) and shows an
+inline success/error message without leaving the page. Provider-specific values
+(API keys, subject lines) go in a generic `hiddenFields` map - rendered as hidden
+inputs - so no client values live in the component. A honeypot field is included
+for spam protection.
+
+```js
+// site.config.js - contact section props
+props: {
+  headline: "Get in touch",
+  formEndpoint: "https://api.web3forms.com/submit",
+  hiddenFields: {
+    access_key: "your-web3forms-access-key",
+    subject: "New enquiry from the website",
+  },
+}
+```
+
+Works with any endpoint that accepts a form POST and returns JSON (Web3Forms,
+Formspree, your own handler). **Note:** many static hosts (e.g. Spaceship Shared
+Hosting) do not support PHP `mail()`, so prefer a form API or SMTP-backed handler
+over a `mail()` script.
 
 ## Scripts
 

@@ -40,6 +40,7 @@ const COPY_ITEMS = [
   ".gitignore",
   ".gitattributes",
   ".github",
+  ".mcp.json",
   "package.json",
   "package-lock.json",
 ]

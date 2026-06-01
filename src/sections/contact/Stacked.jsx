@@ -20,6 +20,7 @@ export function Stacked({
   intro,
   formEndpoint,
   fields,
+  hiddenFields,
 }) {
   const section = {
     width: "100%",
@@ -59,7 +60,12 @@ export function Stacked({
         <div style={detailsBar}>
           <ContactDetails brand={brand} />
         </div>
-        <ContactForm brand={brand} formEndpoint={formEndpoint} fields={fields} />
+        <ContactForm
+          brand={brand}
+          formEndpoint={formEndpoint}
+          fields={fields}
+          hiddenFields={hiddenFields}
+        />
       </div>
     </section>
   )

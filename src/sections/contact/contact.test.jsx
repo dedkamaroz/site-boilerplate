@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest"
-import { render } from "@testing-library/react"
+import { describe, it, expect, vi, afterEach } from "vitest"
+import { render, fireEvent, waitFor } from "@testing-library/react"
 import { FormLeftDetailsRight } from "./FormLeftDetailsRight"
 import { Stacked } from "./Stacked"
 import { DetailsOnly } from "./DetailsOnly"
@@ -34,6 +34,65 @@ describe("contact / form-left-details-right", () => {
   it("falls back to a mailto action from brand.email when no endpoint is given", () => {
     const { container } = render(<FormLeftDetailsRight brand={fullBrand} />)
     expect(container.querySelector("form").getAttribute("action")).toBe("mailto:book@acme.test")
+  })
+})
+
+describe("contact form - hiddenFields & AJAX submission", () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it("renders hiddenFields as hidden inputs", () => {
+    const hiddenFields = { access_key: "test-key-123", subject: "New enquiry" }
+    const { container } = render(
+      <FormLeftDetailsRight
+        brand={fullBrand}
+        formEndpoint="https://api.web3forms.com/submit"
+        hiddenFields={hiddenFields}
+      />
+    )
+    const key = container.querySelector('input[name="access_key"]')
+    expect(key).toBeTruthy()
+    expect(key.getAttribute("type")).toBe("hidden")
+    expect(key.value).toBe("test-key-123")
+    expect(container.querySelector('input[name="subject"]').value).toBe("New enquiry")
+  })
+
+  it("POSTs to formEndpoint via fetch and shows a success message", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ success: true }) })
+    vi.stubGlobal("fetch", fetchMock)
+
+    const endpoint = "https://api.web3forms.com/submit"
+    const { container, findByText } = render(
+      <FormLeftDetailsRight
+        brand={fullBrand}
+        formEndpoint={endpoint}
+        hiddenFields={{ access_key: "k" }}
+      />
+    )
+
+    fireEvent.submit(container.querySelector("form"))
+
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+    expect(fetchMock.mock.calls[0][0]).toBe(endpoint)
+    expect(fetchMock.mock.calls[0][1].method).toBe("POST")
+    expect(await findByText(/your message has been sent/i)).toBeInTheDocument()
+  })
+
+  it("shows an error message when the endpoint reports failure", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({ ok: false, json: async () => ({ success: false }) })
+    )
+    const { container, findByText } = render(
+      <FormLeftDetailsRight
+        brand={fullBrand}
+        formEndpoint="https://api.web3forms.com/submit"
+        hiddenFields={{ access_key: "k" }}
+      />
+    )
+    fireEvent.submit(container.querySelector("form"))
+    expect(await findByText(/something went wrong/i)).toBeInTheDocument()
   })
 })
 
