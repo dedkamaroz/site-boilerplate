@@ -5,41 +5,15 @@ import { registerVariant } from "../registry"
 // Visually distinct from filterable-grid - tiles keep their natural aspect ratio
 // and flow into balanced columns. Each tile renders shared Media plus a caption,
 // so an item with an empty media.src still reads as a labelled card.
+// Neutral placeholders: tiles render labelled even with an empty media.src, so
+// the boilerplate ships no sample media. Supply `items` in config to populate.
 const DEFAULT_ITEMS = [
-  {
-    media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Headphones render" },
-    title: "Next Gen",
-    category: "Product",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/abstract.webp", alt: "Abstract forms" },
-    title: "Abstract Forms",
-    category: "Branding",
-  },
-  {
-    media: {
-      kind: "video",
-      src: "/assets/portfolio/perfume.mp4",
-      poster: "/assets/portfolio/perfume-poster.jpg",
-    },
-    title: "Elixir",
-    category: "Product",
-  },
-  {
-    media: { kind: "image", src: "", alt: "" },
-    title: "Modern Living",
-    category: "Spaces",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/car.webp", alt: "Vehicle render" },
-    title: "Velocity",
-    category: "Product",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/flat-poster.jpg", alt: "Interior render" },
-    title: "Serenity",
-    category: "Spaces",
-  },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project one", category: "Category A" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project two", category: "Category B" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project three", category: "Category A" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project four", category: "Category C" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project five", category: "Category B" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project six", category: "Category C" },
 ]
 
 function MasonryTile({ item }) {

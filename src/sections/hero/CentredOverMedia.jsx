@@ -4,7 +4,7 @@ import { registerVariant } from "../registry"
 
 // hero / centred-over-media: full-bleed Media background (image or video) with a
 // theme-tracking gradient overlay, content centred over it. Adapted from the
-// original DISTRO 3D hero. Renders standalone with no props for the gallery.
+// original agency hero. Renders standalone with no props for the gallery.
 export function CentredOverMedia({
   brand,
   headline = "We Make the Impossible Look Real",

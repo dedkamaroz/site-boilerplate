@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Media from "../shared/Media"
 import { registerVariant } from "../registry"
 import { resolveCta } from "./ctaDefaults"
 
@@ -13,18 +14,38 @@ export function FullBleed({
   ctaHref,
   secondaryLabel,
   secondaryHref,
+  media,
 }) {
   const [ctaHover, setCtaHover] = useState(false)
   const [secHover, setSecHover] = useState(false)
   const cta = resolveCta({ ctaHref, ctaLabel: ctaLabel || "Get in touch", brand })
 
   const outer = {
+    position: "relative",
+    overflow: "hidden",
     width: "100%",
     boxSizing: "border-box",
     background: "var(--color-accent)",
     fontFamily: "var(--font-body)",
   }
+  // Optional full-bleed background image, tinted with the accent so the white
+  // text stays legible and the section keeps its brand colour.
+  const bgImg = {
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center",
+  }
+  const tint = {
+    position: "absolute",
+    inset: 0,
+    background: "color-mix(in srgb, var(--color-accent) 68%, transparent)",
+  }
   const inner = {
+    position: "relative",
+    zIndex: 1,
     maxWidth: "var(--max-width)",
     margin: "0 auto",
     padding: "4rem 2rem",
@@ -90,6 +111,12 @@ export function FullBleed({
 
   return (
     <section style={outer} data-section-type="ctaBanner" data-variant="full-bleed">
+      {media?.src ? (
+        <>
+          <Media media={media} style={bgImg} alt={media.alt ?? ""} />
+          <div style={tint} />
+        </>
+      ) : null}
       <div style={inner}>
         <h2 style={h2}>{headline}</h2>
         {subline ? <p style={sub}>{subline}</p> : null}

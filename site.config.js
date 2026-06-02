@@ -1,16 +1,16 @@
 // site.config.js - the single source of truth for this site.
 //
 // Edit this file (and drop assets into public/assets/) to produce a new site;
-// the React components are never edited per client. This sample is the original
-// DISTRO 3D agency, expressed as config.
+// the React components are never edited per client. This is a neutral demo
+// (a creative studio) showing the config in use.
 //
 // See docs/plans/2026-06-01-boilerplate-design.md for the full schema.
 
 export default {
   brand: {
-    name: "DISTRO 3D",
+    name: "Lumen Studio",
     logo: "/assets/logo/logo.webp",
-    email: "hello@distro3d.com",
+    email: "hello@lumenstudio.example",
     phone: "",
     serviceArea: "",
     social: { instagram: "", facebook: "" },
@@ -40,38 +40,36 @@ export default {
   pages: [
     {
       path: "/",
-      title: "DISTRO 3D - CGI, Motion Graphics & 3D Visualisation",
+      title: "Lumen Studio - Design, Motion & 3D",
       sections: [
         {
           type: "hero",
           variant: "centred-over-media",
           props: {
-            headline: "We Make the Impossible Look Real",
-            subline: "CGI · Motion Graphics · 3D Visualisation",
-            ctaLabel: "See Our Work",
+            headline: "We make the impossible look real",
+            subline: "Design · Motion · 3D Visualisation",
+            ctaLabel: "See our work",
             ctaHref: "/work",
-            media: {
-              kind: "video",
-              src: "/assets/portfolio/showreel.mp4",
-              poster: "/assets/portfolio/showreel-poster.jpg",
-            },
+            // No demo media ships with the boilerplate - the hero falls back to
+            // its gradient. Drop a file in public/assets/ and reference it here.
+            media: { kind: "image", src: "", alt: "" },
           },
         },
         {
           type: "services",
           variant: "numbered-list",
-          props: { headline: "What We Do" },
+          props: { headline: "What we do" },
         },
         {
           type: "testimonials",
           variant: "drag-strip",
-          props: { headline: "What Clients Say" },
+          props: { headline: "What clients say" },
         },
       ],
     },
     {
       path: "/contact",
-      title: "DISTRO 3D - Contact",
+      title: "Lumen Studio - Contact",
       sections: [
         {
           type: "contact",

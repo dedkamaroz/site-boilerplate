@@ -6,41 +6,15 @@ import { registerVariant } from "../registry"
 // grid. Adapted from the original PortfolioGrid component into the config-driven
 // section shape. Each tile renders shared Media plus a title/category caption, so
 // an item with an empty media.src still reads as a labelled tile.
+// Neutral placeholders: tiles render labelled even with an empty media.src, so
+// the boilerplate ships no sample media. Supply `items` in config to populate.
 const DEFAULT_ITEMS = [
-  {
-    media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Headphones render" },
-    title: "Next Gen",
-    category: "Product",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/car.webp", alt: "Vehicle render" },
-    title: "Velocity",
-    category: "Product",
-  },
-  {
-    media: {
-      kind: "video",
-      src: "/assets/portfolio/logo.mp4",
-      poster: "/assets/portfolio/logo-poster.jpg",
-    },
-    title: "Brand Motion",
-    category: "Branding",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/abstract.webp", alt: "Abstract forms" },
-    title: "Abstract Forms",
-    category: "Branding",
-  },
-  {
-    media: { kind: "image", src: "", alt: "" },
-    title: "Modern Living",
-    category: "Spaces",
-  },
-  {
-    media: { kind: "image", src: "/assets/portfolio/flat-poster.jpg", alt: "Interior render" },
-    title: "Serenity",
-    category: "Spaces",
-  },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project one", category: "Category A" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project two", category: "Category A" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project three", category: "Category B" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project four", category: "Category B" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project five", category: "Category C" },
+  { media: { kind: "image", src: "", alt: "" }, title: "Project six", category: "Category C" },
 ]
 
 // Derive an ordered, de-duplicated category list from the items when no explicit

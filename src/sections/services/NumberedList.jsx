@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Media from "../shared/Media"
 import { registerVariant } from "../registry"
 
 // services / numbered-list: adapted from the original ServicesSection. Each
@@ -94,6 +95,30 @@ function NumberedRow({ item, index }) {
     transition: "color 0.2s ease",
     fontFamily: "var(--font-body)",
   }
+  // Trailing column holds the optional price and/or an optional thumbnail.
+  const trailing = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    gap: "0.75rem",
+  }
+  const thumb = {
+    width: 200,
+    maxWidth: "100%",
+    aspectRatio: "4 / 3",
+    overflow: "hidden",
+    borderRadius: "var(--radius)",
+    border: "1px solid var(--color-border)",
+    background: "var(--color-surface)",
+  }
+  const thumbImg = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    display: "block",
+    transform: hovered ? "scale(1.04)" : "scale(1)",
+    transition: "transform 0.4s ease",
+  }
 
   return (
     <div
@@ -118,7 +143,14 @@ function NumberedRow({ item, index }) {
         ) : null}
       </div>
 
-      {item.price ? <span style={price}>{item.price}</span> : <span />}
+      <div style={trailing}>
+        {item.price ? <span style={price}>{item.price}</span> : null}
+        {item.media?.src ? (
+          <div style={thumb}>
+            <Media media={item.media} alt={item.media.alt ?? item.title} style={thumbImg} />
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }
