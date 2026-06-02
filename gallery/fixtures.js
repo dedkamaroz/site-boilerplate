@@ -2,9 +2,11 @@
 // default props (so they render standalone), but a few look better with richer
 // fixtures - especially anything that takes media, brand fields or nav.
 
-export const sampleImage = "/assets/portfolio/car.webp"
-export const sampleVideo = "/assets/portfolio/bath.mp4"
-export const sampleVideoPoster = "/assets/portfolio/bath-poster.jpg"
+// The boilerplate ships no sample media; set these to your own /assets/... paths
+// to see image/video variants populated in the gallery preview.
+export const sampleImage = ""
+export const sampleVideo = ""
+export const sampleVideoPoster = ""
 
 export const sampleNav = [
   { label: "Services", href: "/services" },
@@ -64,16 +66,12 @@ export function fixtureProps(type) {
             category: "Motion",
           },
           {
-            media: {
-              kind: "image",
-              src: "/assets/portfolio/headphones.webp",
-              alt: "Project three",
-            },
+            media: { kind: "image", src: "", alt: "Project three" },
             title: "Project three",
             category: "Brand",
           },
           {
-            media: { kind: "image", src: "/assets/portfolio/abstract.webp", alt: "Project four" },
+            media: { kind: "image", src: "", alt: "Project four" },
             title: "Project four",
             category: "Web",
           },
@@ -91,7 +89,7 @@ export function fixtureProps(type) {
             href: "#",
           },
           {
-            media: { kind: "image", src: "/assets/portfolio/headphones.webp", alt: "Feature two" },
+            media: { kind: "image", src: "", alt: "Feature two" },
             title: "Another highlight",
             description: "What we delivered and why it mattered.",
             tag: "Featured",

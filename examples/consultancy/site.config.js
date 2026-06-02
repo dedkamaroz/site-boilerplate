@@ -68,27 +68,19 @@ export default {
             headline: "Selected engagements",
             items: [
               {
-                media: {
-                  kind: "image",
-                  src: "/assets/portfolio/abstract.webp",
-                  alt: "Operating model",
-                },
+                media: { kind: "image", src: "", alt: "Operating model" },
                 title: "Operating model redesign",
                 description: "Reshaped a 400-person services org around client value.",
                 tag: "Operations",
               },
               {
-                media: { kind: "image", src: "/assets/portfolio/car.webp", alt: "Growth strategy" },
+                media: { kind: "image", src: "", alt: "Growth strategy" },
                 title: "Three-year growth strategy",
                 description: "Identified two adjacencies worth 30% of revenue.",
                 tag: "Strategy",
               },
               {
-                media: {
-                  kind: "image",
-                  src: "/assets/portfolio/headphones.webp",
-                  alt: "Transformation",
-                },
+                media: { kind: "image", src: "", alt: "Transformation" },
                 title: "Cost-to-serve transformation",
                 description: "Released 18% margin without headcount cuts.",
                 tag: "Transformation",

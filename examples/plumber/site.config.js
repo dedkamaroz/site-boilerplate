@@ -51,11 +51,7 @@ export default {
             subline: "Licensed local plumbers across Greater North Sydney. No call-out surprises.",
             ctaLabel: "Book a call-out",
             ctaHref: "/contact",
-            media: {
-              kind: "image",
-              src: "/assets/portfolio/bath-poster.jpg",
-              alt: "Plumbing work",
-            },
+            media: { kind: "image", src: "", alt: "Plumbing work" },
           },
         },
         {

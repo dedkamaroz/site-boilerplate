@@ -50,11 +50,9 @@ export default {
             subline: "Design · Motion · 3D Visualisation",
             ctaLabel: "See our work",
             ctaHref: "/work",
-            media: {
-              kind: "video",
-              src: "/assets/portfolio/showreel.mp4",
-              poster: "/assets/portfolio/showreel-poster.jpg",
-            },
+            // No demo media ships with the boilerplate - the hero falls back to
+            // its gradient. Drop a file in public/assets/ and reference it here.
+            media: { kind: "image", src: "", alt: "" },
           },
         },
         {
